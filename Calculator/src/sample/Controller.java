@@ -2,7 +2,6 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -43,19 +42,33 @@ public class Controller {
       }
     }
   }
-  @FXML protected void handleDPress(){
+  @FXML protected void handleDividePress(){
     String contents = mainWriteArea.getText().trim();
     if (contents.equals(""))
       return;
     else
       mainWriteArea.appendText(" / ");
   }
-  @FXML protected void handleMPress(){
+  @FXML protected void handleMultiplyPress(){
     String contents = mainWriteArea.getText().trim();
     if (contents.equals(""))
       return;
     else
       mainWriteArea.appendText(" * ");
+  }
+  @FXML protected void handleSubtractPress(){
+    String contents = mainWriteArea.getText().trim();
+    if (contents.equals(""))
+      return;
+    else
+      mainWriteArea.appendText(" - ");
+  }
+  @FXML protected void handleAddPress(){
+    String contents = mainWriteArea.getText().trim();
+    if (contents.equals(""))
+      return;
+    else
+      mainWriteArea.appendText(" + ");
   }
   @FXML protected void handleSqPress(){
     String contents = mainWriteArea.getText().trim();

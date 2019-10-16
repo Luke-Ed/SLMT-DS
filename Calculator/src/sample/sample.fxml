@@ -10,23 +10,23 @@
   <Button GridPane.rowIndex="1" GridPane.columnIndex="2" alignment="CENTER" >CE</Button>
   <Button GridPane.rowIndex="1" GridPane.columnIndex="3" alignment="CENTER" onAction="#handleCPress">C</Button>
   <Button GridPane.rowIndex="1" GridPane.columnIndex="4" alignment="CENTER" >Delete</Button>
-  <Button GridPane.rowIndex="1" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleDPress">/</Button>
+  <Button GridPane.rowIndex="1" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleDividePress">/</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqRtPress">SqRt</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle7Press">7</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle8Press">8</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle9Press">9</Button>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleMPress">*</Button>
+  <Button GridPane.rowIndex="2" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleMultiplyPress">*</Button>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqPress">Square</Button>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle4Press">4</Button>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle5Press">5</Button>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle6Press">6</Button>
-  <Button GridPane.rowIndex="3" GridPane.columnIndex="5" alignment="CENTER">-</Button>
+  <Button GridPane.rowIndex="3" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleSubtractPress">-</Button>
   <Button GridPane.rowIndex="4" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleCuPress">Cube</Button>
   <Button GridPane.rowIndex="4" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle1Press">1</Button>
   <Button GridPane.rowIndex="4" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle2Press">2</Button>
   <Button GridPane.rowIndex="4" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle3Press">3</Button>
-  <Button GridPane.rowIndex="4" GridPane.columnIndex="5" alignment="CENTER">+</Button>
-  <Button GridPane.rowIndex="5" GridPane.columnIndex="1" alignment="CENTER">Invert</Button>
+  <Button GridPane.rowIndex="4" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleAddPress">+</Button>
+  <Button GridPane.rowIndex="5" GridPane.columnIndex="1" alignment="CENTER" >Invert</Button>
   <Button GridPane.rowIndex="5" GridPane.columnIndex="2" alignment="CENTER" onAction="#handleNegatePress">(-)</Button>
   <Button GridPane.rowIndex="5" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle0Press">0</Button>
   <Button GridPane.rowIndex="5" GridPane.columnIndex="4" alignment="CENTER" onAction="#handleDotPress">.</Button>
