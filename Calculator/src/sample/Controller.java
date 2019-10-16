@@ -19,13 +19,29 @@ public class Controller {
   @FXML protected void handle1Press(){ mainWriteArea.appendText("1"); }
   @FXML protected void handle2Press(){ mainWriteArea.appendText("2"); }
   @FXML protected void handle3Press(){ mainWriteArea.appendText("3"); }
+  @FXML protected void handle0Press(){ mainWriteArea.appendText("0"); }
+  @FXML protected void handleDotPress(){ mainWriteArea.appendText(".");}
   @FXML protected void handleNegatePress(){ mainWriteArea.appendText("-"); }
   @FXML protected void handleSqRtPress(){
     String contents = mainWriteArea.getText().trim();
-    if (contents.equals(""))
+    if (contents.equals("")) {
       return;
-    else
-      mainWriteArea.appendText("^(1/2)");
+    }
+    else {
+      String input = mainWriteArea.getText();
+      ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
+      String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), .5) +"";
+      stringList.remove(stringList.size()-1);
+      stringList.add(temp);
+      mainWriteArea.clear();
+      if (input.length()>2){
+        input = input.substring(0, input.length()-2);
+        mainWriteArea.appendText(input + " " + temp);
+      }
+      else {
+        mainWriteArea.appendText(temp);
+      }
+    }
   }
   @FXML protected void handleDPress(){
     String contents = mainWriteArea.getText().trim();
@@ -43,10 +59,45 @@ public class Controller {
   }
   @FXML protected void handleSqPress(){
     String contents = mainWriteArea.getText().trim();
-    if (contents.equals(""))
+    if (contents.equals("")) {
       return;
-    else
-      mainWriteArea.appendText(" ^2 ");
+    }
+    else {
+      String input = mainWriteArea.getText();
+      ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
+      String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), 2) +"";
+      stringList.remove(stringList.size()-1);
+      stringList.add(temp);
+      mainWriteArea.clear();
+      if (input.length()>2){
+        input = input.substring(0, input.length()-2);
+        mainWriteArea.appendText(input + " " + temp);
+      }
+      else {
+        mainWriteArea.appendText(temp);
+      }
+    }
+  }
+  @FXML protected void handleCuPress(){
+    String contents = mainWriteArea.getText().trim();
+    if (contents.equals("")) {
+      return;
+    }
+    else {
+      String input = mainWriteArea.getText();
+      ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
+      String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), 3) +"";
+      stringList.remove(stringList.size()-1);
+      stringList.add(temp);
+      mainWriteArea.clear();
+      if (input.length()>2){
+        input = input.substring(0, input.length()-2);
+        mainWriteArea.appendText(input + " " + temp);
+      }
+      else {
+        mainWriteArea.appendText(temp);
+      }
+    }
   }
   @FXML protected void handleEqualsPress(){
     String fulltext = mainWriteArea.getText();
