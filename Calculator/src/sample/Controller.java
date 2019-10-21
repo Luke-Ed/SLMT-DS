@@ -7,8 +7,7 @@ import java.util.Arrays;
 
 public class Controller {
   @FXML protected TextArea mainWriteArea;
-
-  @FXML protected void handleCPress(){ mainWriteArea.clear(); }
+  @FXML protected void handleCPress(){ mainWriteArea.clear(); mainWriteArea.appendText(" "); }
   @FXML protected void handle7Press(){ mainWriteArea.appendText("7"); }
   @FXML protected void handle8Press(){ mainWriteArea.appendText("8"); }
   @FXML protected void handle9Press(){ mainWriteArea.appendText("9"); }
@@ -34,11 +33,11 @@ public class Controller {
       stringList.add(temp);
       mainWriteArea.clear();
       if (input.length()>2){
-        input = input.substring(0, input.length()-2);
+        input = input.substring(0, input.lastIndexOf(" "));
         mainWriteArea.appendText(input + " " + temp);
       }
       else {
-        mainWriteArea.appendText(temp);
+        mainWriteArea.appendText(" " + temp);
       }
     }
   }
@@ -83,11 +82,11 @@ public class Controller {
       stringList.add(temp);
       mainWriteArea.clear();
       if (input.length()>2){
-        input = input.substring(0, input.length()-2);
+        input = input.substring(0, input.lastIndexOf(" "));
         mainWriteArea.appendText(input + " " + temp);
       }
       else {
-        mainWriteArea.appendText(temp);
+        mainWriteArea.appendText(" "+ temp);
       }
     }
   }
@@ -104,11 +103,11 @@ public class Controller {
       stringList.add(temp);
       mainWriteArea.clear();
       if (input.length()>2){
-        input = input.substring(0, input.length()-2);
+        input = input.substring(0, input.lastIndexOf(" "));
         mainWriteArea.appendText(input + " " + temp);
       }
       else {
-        mainWriteArea.appendText(temp);
+        mainWriteArea.appendText(" "+temp);
       }
     }
   }
