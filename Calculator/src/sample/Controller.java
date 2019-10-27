@@ -128,8 +128,20 @@ public class Controller {
       else if (stringList.get(i).contains("/")){
         result = result / Double.parseDouble(stringList.get(i+1));
       }
+      if (stringList.get(i).contains("+") && Math.round(result) == 0){
+        result = (Double.parseDouble(stringList.get(i-1)) + Double.parseDouble(stringList.get(i+1)));
+      }
+      else if (stringList.get(i).contains("+")){
+        result = result + Double.parseDouble(stringList.get(i+1));
+      }
+      if (stringList.get(i).contains("-") && Math.round(result) == 0 && stringList.get(i).equals("-")){
+        result = (Double.parseDouble(stringList.get(i-1)) - Double.parseDouble(stringList.get(i+1)));
+      }
+      else if (stringList.get(i).contains("-") && stringList.get(i).equals("-")){
+        result = result - Double.parseDouble(stringList.get(i+1));
+      }
     }
     mainWriteArea.clear();
-    mainWriteArea.appendText(""+result);
+    mainWriteArea.appendText(" "+result);
   }
 }
