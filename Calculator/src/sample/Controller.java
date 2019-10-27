@@ -6,10 +6,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Controller {
+  private CyclicLinkedList cll = new CyclicLinkedList();
   @FXML protected TextArea mainWriteArea;
+
+  @FXML protected void Undo(){
+
+    mainWriteArea.clear();
+    mainWriteArea.appendText(cll.end.previous.getData());
+    cll.moveEndToHead();
+  }
+
   @FXML protected void handleCPress(){ mainWriteArea.clear(); mainWriteArea.appendText(" "); }
-  @FXML protected void handle7Press(){ mainWriteArea.appendText("7"); }
-  @FXML protected void handle8Press(){ mainWriteArea.appendText("8"); }
+  @FXML protected void handle7Press(){
+    mainWriteArea.appendText("7");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle8Press(){
+    mainWriteArea.appendText("8");
+    cll.addNode(mainWriteArea.getText());
+  }
   @FXML protected void handle9Press(){ mainWriteArea.appendText("9"); }
   @FXML protected void handle4Press(){ mainWriteArea.appendText("4"); }
   @FXML protected void handle5Press(){ mainWriteArea.appendText("5"); }
