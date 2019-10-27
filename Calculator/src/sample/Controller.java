@@ -6,20 +6,64 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Controller {
+  private CyclicLinkedList cll = new CyclicLinkedList();
   @FXML protected TextArea mainWriteArea;
+
+  @FXML protected void Undo(){
+    mainWriteArea.clear();
+    mainWriteArea.appendText(cll.end.previous.getData());
+    cll.moveEndToHead();
+  }
+
   @FXML protected void handleCPress(){ mainWriteArea.clear(); mainWriteArea.appendText(" "); }
-  @FXML protected void handle7Press(){ mainWriteArea.appendText("7"); }
-  @FXML protected void handle8Press(){ mainWriteArea.appendText("8"); }
-  @FXML protected void handle9Press(){ mainWriteArea.appendText("9"); }
-  @FXML protected void handle4Press(){ mainWriteArea.appendText("4"); }
-  @FXML protected void handle5Press(){ mainWriteArea.appendText("5"); }
-  @FXML protected void handle6Press(){ mainWriteArea.appendText("6"); }
-  @FXML protected void handle1Press(){ mainWriteArea.appendText("1"); }
-  @FXML protected void handle2Press(){ mainWriteArea.appendText("2"); }
-  @FXML protected void handle3Press(){ mainWriteArea.appendText("3"); }
-  @FXML protected void handle0Press(){ mainWriteArea.appendText("0"); }
-  @FXML protected void handleDotPress(){ mainWriteArea.appendText(".");}
-  @FXML protected void handleNegatePress(){ mainWriteArea.appendText("-"); }
+  @FXML protected void handle7Press(){
+    mainWriteArea.appendText("7");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle8Press(){
+    mainWriteArea.appendText("8");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle9Press(){
+    mainWriteArea.appendText("9");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle4Press(){
+    mainWriteArea.appendText("4");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle5Press(){
+    mainWriteArea.appendText("5");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle6Press(){
+    mainWriteArea.appendText("6");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle1Press(){
+    mainWriteArea.appendText("1");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle2Press(){
+    mainWriteArea.appendText("2");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle3Press(){
+    mainWriteArea.appendText("3");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handle0Press(){
+    mainWriteArea.appendText("0");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handleDotPress(){
+    mainWriteArea.appendText(".");
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handleNegatePress(){
+    mainWriteArea.appendText("-");
+    cll.addNode(mainWriteArea.getText());
+  }
   @FXML protected void handleSqRtPress(){
     String contents = mainWriteArea.getText().trim();
     if (contents.equals("")) {
@@ -40,13 +84,17 @@ public class Controller {
         mainWriteArea.appendText(" " + temp);
       }
     }
+    cll.addNode(mainWriteArea.getText());
   }
   @FXML protected void handleDividePress(){
     String contents = mainWriteArea.getText().trim();
-    if (contents.equals(""))
+    if (contents.equals("")) {
       return;
-    else
+    }
+    else {
       mainWriteArea.appendText(" / ");
+      cll.addNode(mainWriteArea.getText());
+    }
   }
   @FXML protected void handleMultiplyPress(){
     String contents = mainWriteArea.getText().trim();
