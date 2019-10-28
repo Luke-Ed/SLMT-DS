@@ -5,7 +5,7 @@
 <GridPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" >
   <Button GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#Undo">Undo</Button>
   <Button GridPane.rowIndex="0" GridPane.columnIndex="5" GridPane.columnSpan="2" onAction="#Redo">Redo</Button>
-  <TextArea GridPane.rowIndex="1" GridPane.columnSpan="6" editable="false" fx:id="mainWriteArea"> </TextArea>
+  <TextArea GridPane.rowIndex="1" GridPane.columnSpan="6" editable="false" fx:id="mainWriteArea" text=" "/>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER" onAction="#handlePercentPress">%</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="2" alignment="CENTER" onAction="#handleCEPress">CE</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="3" alignment="CENTER" onAction="#handleCPress">C</Button>

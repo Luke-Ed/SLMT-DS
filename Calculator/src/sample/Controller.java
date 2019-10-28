@@ -38,7 +38,7 @@ public class Controller {
       stringList.remove(stringList.size()-1);
       stringList.add(temp);
       mainWriteArea.clear();
-      if (input.length()>2){
+      if (input.lastIndexOf(" " ) != 0){
         input = input.substring(0, input.lastIndexOf(" "));
         mainWriteArea.appendText(input + " " + temp);
       }
