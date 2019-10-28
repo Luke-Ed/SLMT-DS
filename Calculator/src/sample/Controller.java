@@ -12,8 +12,20 @@ public class Controller {
   @FXML protected void Undo(){
     mainWriteArea.clear();
     mainWriteArea.appendText(cll.end.previous.getData());
-    cll.moveEndToHead();
+    cll.moveEndToStart();
   }
+  @FXML protected void Redo(){
+    mainWriteArea.clear();
+    mainWriteArea.appendText(cll.end.next.getData());
+    cll.moveStartToEnd();
+  }
+  @FXML protected void handleCEPress(){
+    String temp = mainWriteArea.getText().substring(0, mainWriteArea.getText().lastIndexOf(" "));
+    mainWriteArea.clear();
+    mainWriteArea.appendText(temp);
+    cll.addNode(mainWriteArea.getText());
+  }
+
   @FXML protected void handlePercentPress(){
     String contents = mainWriteArea.getText().trim();
     if (contents.equals("")) {
@@ -98,6 +110,28 @@ public class Controller {
       String input = mainWriteArea.getText();
       ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
       String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), .5) +"";
+      stringList.remove(stringList.size()-1);
+      stringList.add(temp);
+      mainWriteArea.clear();
+      if (input.length()>2){
+        input = input.substring(0, input.lastIndexOf(" "));
+        mainWriteArea.appendText(input + " " + temp);
+      }
+      else {
+        mainWriteArea.appendText(" " + temp);
+      }
+      cll.addNode(mainWriteArea.getText());
+    }
+  }
+  @FXML protected void handleInvertPress(){
+    String contents = mainWriteArea.getText().trim();
+    if (contents.equals("")) {
+      return;
+    }
+    else {
+      String input = mainWriteArea.getText();
+      ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
+      String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), -1) +"";
       stringList.remove(stringList.size()-1);
       stringList.add(temp);
       mainWriteArea.clear();

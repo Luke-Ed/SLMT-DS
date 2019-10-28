@@ -39,10 +39,16 @@ public class CyclicLinkedList {
       size++;
     }
   }
-  public void moveEndToHead(){
+  void moveEndToStart(){
     Node temp = start;
     end.next = temp;
     start = end;
     end = end.previous;
+  }
+  void moveStartToEnd(){
+    Node temp = end;
+    start.previous = temp;
+    end = start;
+    start = start.next;
   }
 }
