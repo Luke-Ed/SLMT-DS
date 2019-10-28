@@ -7,15 +7,11 @@ public class CyclicLinkedList {
   private Node finalStart;
   private Node finalEnd;
 
-  public int getSize() {
-    return size;
-  }
-
   public static class Node{
     private String data;
     Node next;
     Node previous;
-    public Node(String data){
+    protected Node(String data){
       this.data=data;
     }
     public String getData(){
@@ -28,7 +24,8 @@ public class CyclicLinkedList {
   }
 
   public void addNode(String data){
-    //There is only a need to be able to add notes to the end of the list, as we will only be accessing this list from one end.
+    //There is only a need to be able to add notes to the end of the list,
+    // as we will only be accessing this list from one end, for the calculator at least.
     Node NewNode = new Node(data);
     if (size == 0){
       start = NewNode;

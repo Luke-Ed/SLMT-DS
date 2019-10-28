@@ -7,8 +7,7 @@ import java.util.Arrays;
 
 public class Controller {
   private CyclicLinkedList cll = new CyclicLinkedList();
-  private String[] x = new String[]{"-", "+", "*", "/"};
-  private ArrayList<String> disallowed = new ArrayList<>(Arrays.asList(x));
+  private ArrayList<String> operations = new ArrayList<>(Arrays.asList("-", "+", "*", "/"));
   @FXML protected TextArea mainWriteArea;
 
   @FXML protected void Undo(){
@@ -152,7 +151,7 @@ public class Controller {
     if (contents.equals("")) {
       return;
     }
-    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
+    else if(operations.contains(contents.charAt(contents.length()-1)+"")){
       return;
     }
     else {
@@ -165,7 +164,7 @@ public class Controller {
     if (contents.equals("")) {
       return;
     }
-    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
+    else if(operations.contains(contents.charAt(contents.length()-1)+"")){
       return;
     }
     else {
@@ -178,7 +177,7 @@ public class Controller {
     if (contents.equals("")) {
       return;
     }
-    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
+    else if(operations.contains(contents.charAt(contents.length()-1)+"")){
       return;
     }
     else {
@@ -191,7 +190,7 @@ public class Controller {
     if (contents.equals("")) {
       return;
     }
-    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
+    else if(operations.contains(contents.charAt(contents.length()-1)+"")){
       return;
     }
     else {
@@ -247,6 +246,8 @@ public class Controller {
     String fulltext = mainWriteArea.getText();
     ArrayList<String> stringList = new ArrayList<>(Arrays.asList(fulltext.split(" ")));
     double result=0;
+    //Todo: I'm trying to think of a good way to handle reading from the input to verify
+    // that it contains an operation.
     for (int i = 0; i<stringList.size()-1; i++){
       if (stringList.get(i).contains("*") && Math.round(result) == 0){
         result = (Double.parseDouble(stringList.get(i-1)) * Double.parseDouble(stringList.get(i+1)));
