@@ -8,10 +8,10 @@
   <Button GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#Undo">Undo</Button>
   <Button GridPane.rowIndex="0" GridPane.columnIndex="5" GridPane.columnSpan="2" >Redo</Button>
   <TextArea GridPane.rowIndex="1" GridPane.columnSpan="6" editable="false" fx:id="mainWriteArea"> </TextArea>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER" >%</Button>
+  <Button GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER" onAction="#handlePercentPress">%</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="2" alignment="CENTER" >CE</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="3" alignment="CENTER" onAction="#handleCPress">C</Button>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="4" alignment="CENTER" >Delete</Button>
+  <Button GridPane.rowIndex="2" GridPane.columnIndex="4" alignment="CENTER" onAction="#handleDeletePress">Delete</Button>
   <Button GridPane.rowIndex="2" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleDividePress">/</Button>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqRtPress">SqRt</Button>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle7Press">7</Button>

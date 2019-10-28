@@ -14,8 +14,33 @@ public class Controller {
     mainWriteArea.appendText(cll.end.previous.getData());
     cll.moveEndToHead();
   }
-
-  @FXML protected void handleCPress(){ mainWriteArea.clear(); mainWriteArea.appendText(" "); }
+  @FXML protected void handlePercentPress(){
+    String contents = mainWriteArea.getText().trim();
+    if (contents.equals("")) {
+      return;
+    }
+    else {
+      String input = mainWriteArea.getText();
+      ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
+      String temp = (Double.parseDouble(stringList.get(stringList.size()-1)))/100 +"";
+      stringList.remove(stringList.size()-1);
+      stringList.add(temp);
+      mainWriteArea.clear();
+      if (input.length()>2){
+        input = input.substring(0, input.lastIndexOf(" "));
+        mainWriteArea.appendText(input + " " + temp);
+      }
+      else {
+        mainWriteArea.appendText(" "+temp);
+      }
+      cll.addNode(mainWriteArea.getText());
+    }
+  }
+  @FXML protected void handleCPress(){
+    mainWriteArea.clear();
+    mainWriteArea.appendText(" ");
+    cll.addNode(mainWriteArea.getText());
+  }
   @FXML protected void handle7Press(){
     mainWriteArea.appendText("7");
     cll.addNode(mainWriteArea.getText());
@@ -83,8 +108,8 @@ public class Controller {
       else {
         mainWriteArea.appendText(" " + temp);
       }
+      cll.addNode(mainWriteArea.getText());
     }
-    cll.addNode(mainWriteArea.getText());
   }
   @FXML protected void handleDividePress(){
     String contents = mainWriteArea.getText().trim();
@@ -98,24 +123,33 @@ public class Controller {
   }
   @FXML protected void handleMultiplyPress(){
     String contents = mainWriteArea.getText().trim();
-    if (contents.equals(""))
+    if (contents.equals("")) {
       return;
-    else
+    }
+    else {
       mainWriteArea.appendText(" * ");
+      cll.addNode(mainWriteArea.getText());
+    }
   }
   @FXML protected void handleSubtractPress(){
     String contents = mainWriteArea.getText().trim();
-    if (contents.equals(""))
+    if (contents.equals("")) {
       return;
-    else
+    }
+    else {
       mainWriteArea.appendText(" - ");
+      cll.addNode(mainWriteArea.getText());
+    }
   }
   @FXML protected void handleAddPress(){
     String contents = mainWriteArea.getText().trim();
-    if (contents.equals(""))
+    if (contents.equals("")) {
       return;
-    else
+    }
+    else {
       mainWriteArea.appendText(" + ");
+      cll.addNode(mainWriteArea.getText());
+    }
   }
   @FXML protected void handleSqPress(){
     String contents = mainWriteArea.getText().trim();
@@ -136,6 +170,7 @@ public class Controller {
       else {
         mainWriteArea.appendText(" "+ temp);
       }
+      cll.addNode(mainWriteArea.getText());
     }
   }
   @FXML protected void handleCuPress(){
@@ -157,6 +192,7 @@ public class Controller {
       else {
         mainWriteArea.appendText(" "+temp);
       }
+      cll.addNode(mainWriteArea.getText());
     }
   }
   @FXML protected void handleEqualsPress(){
@@ -191,5 +227,26 @@ public class Controller {
     }
     mainWriteArea.clear();
     mainWriteArea.appendText(" "+result);
+    cll.addNode(mainWriteArea.getText());
+  }
+  @FXML protected void handleDeletePress(){
+    String contents = mainWriteArea.getText().trim();
+    if (contents.equals("")) {
+      return;
+    }
+    else {
+      String current = mainWriteArea.getText();
+
+      if (' ' == (current.charAt(current.length()-1))){
+        mainWriteArea.clear();
+        mainWriteArea.appendText(current.substring(0, current.length()-4));
+        cll.addNode(mainWriteArea.getText());
+      }
+      else {
+        mainWriteArea.clear();
+        mainWriteArea.appendText(current.substring(0, current.length()-2));
+        cll.addNode(mainWriteArea.getText());
+      }
+    }
   }
 }
