@@ -7,6 +7,8 @@ import java.util.Arrays;
 
 public class Controller {
   private CyclicLinkedList cll = new CyclicLinkedList();
+  private String[] x = new String[]{"-", "+", "*", "/"};
+  private ArrayList<String> disallowed = new ArrayList<>(Arrays.asList(x));
   @FXML protected TextArea mainWriteArea;
 
   @FXML protected void Undo(){
@@ -150,6 +152,9 @@ public class Controller {
     if (contents.equals("")) {
       return;
     }
+    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
+      return;
+    }
     else {
       mainWriteArea.appendText(" / ");
       cll.addNode(mainWriteArea.getText());
@@ -158,6 +163,9 @@ public class Controller {
   @FXML protected void handleMultiplyPress(){
     String contents = mainWriteArea.getText().trim();
     if (contents.equals("")) {
+      return;
+    }
+    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
       return;
     }
     else {
@@ -170,6 +178,9 @@ public class Controller {
     if (contents.equals("")) {
       return;
     }
+    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
+      return;
+    }
     else {
       mainWriteArea.appendText(" - ");
       cll.addNode(mainWriteArea.getText());
@@ -178,6 +189,9 @@ public class Controller {
   @FXML protected void handleAddPress(){
     String contents = mainWriteArea.getText().trim();
     if (contents.equals("")) {
+      return;
+    }
+    else if(disallowed.contains(contents.charAt(contents.length()-1)+"")){
       return;
     }
     else {
@@ -273,12 +287,12 @@ public class Controller {
 
       if (' ' == (current.charAt(current.length()-1))){
         mainWriteArea.clear();
-        mainWriteArea.appendText(current.substring(0, current.length()-4));
+        mainWriteArea.appendText(current.substring(0, current.length()-3));
         cll.addNode(mainWriteArea.getText());
       }
       else {
         mainWriteArea.clear();
-        mainWriteArea.appendText(current.substring(0, current.length()-2));
+        mainWriteArea.appendText(current.substring(0, current.length()-1));
         cll.addNode(mainWriteArea.getText());
       }
     }
