@@ -2,33 +2,56 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
 <GridPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" >
-  <Button GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#Undo">Undo</Button>
-  <Button GridPane.rowIndex="0" GridPane.columnIndex="5" GridPane.columnSpan="2" onAction="#Redo">Redo</Button>
-  <TextArea GridPane.rowIndex="1" GridPane.columnSpan="6" editable="false" fx:id="mainWriteArea" text=" "/>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="1" alignment="CENTER" onAction="#handlePercentPress">%</Button>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="2" alignment="CENTER" onAction="#handleCEPress">CE</Button>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="3" alignment="CENTER" onAction="#handleCPress">C</Button>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="4" alignment="CENTER" onAction="#handleDeletePress">Delete</Button>
-  <Button GridPane.rowIndex="2" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleDividePress">/</Button>
-  <Button GridPane.rowIndex="3" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqRtPress">SqRt</Button>
-  <Button GridPane.rowIndex="3" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle7Press">7</Button>
-  <Button GridPane.rowIndex="3" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle8Press">8</Button>
-  <Button GridPane.rowIndex="3" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle9Press">9</Button>
-  <Button GridPane.rowIndex="3" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleMultiplyPress">*</Button>
-  <Button GridPane.rowIndex="4" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqPress">Square</Button>
-  <Button GridPane.rowIndex="4" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle4Press">4</Button>
-  <Button GridPane.rowIndex="4" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle5Press">5</Button>
-  <Button GridPane.rowIndex="4" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle6Press">6</Button>
-  <Button GridPane.rowIndex="4" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleSubtractPress">-</Button>
-  <Button GridPane.rowIndex="5" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleCuPress">Cube</Button>
-  <Button GridPane.rowIndex="5" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle1Press">1</Button>
-  <Button GridPane.rowIndex="5" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle2Press">2</Button>
-  <Button GridPane.rowIndex="5" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle3Press">3</Button>
-  <Button GridPane.rowIndex="5" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleAddPress">+</Button>
-  <Button GridPane.rowIndex="6" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleInvertPress">Invert</Button>
-  <Button GridPane.rowIndex="6" GridPane.columnIndex="2" alignment="CENTER" onAction="#handleNegatePress">(-)</Button>
-  <Button GridPane.rowIndex="6" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle0Press">0</Button>
-  <Button GridPane.rowIndex="6" GridPane.columnIndex="4" alignment="CENTER" onAction="#handleDotPress">.</Button>
-  <Button GridPane.rowIndex="6" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleEqualsPress">=</Button>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="1" percentWidth="1" prefWidth="1"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" percentWidth="20" prefWidth="100"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" percentWidth="20" prefWidth="100"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" percentWidth="20" prefWidth="100"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" percentWidth="20" prefWidth="100"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10" percentWidth="20" prefWidth="100"/>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="1" percentWidth="1" prefWidth="1"/>
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints vgrow="SOMETIMES" minHeight="1" percentHeight="1" prefHeight="1" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="60" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
+    <RowConstraints vgrow="SOMETIMES" minHeight="1" percentHeight="1" prefHeight="1" />
+  </rowConstraints>
+  <Button GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#Undo" maxWidth="Infinity" textAlignment="CENTER">Undo</Button>
+  <Button GridPane.rowIndex="1" GridPane.columnIndex="4" GridPane.columnSpan="2" onAction="#Redo" maxWidth="Infinity" textAlignment="CENTER">Redo</Button>
+  <TextArea GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="5" editable="false" fx:id="mainWriteArea" text=" "/>
+  <Button GridPane.rowIndex="3" GridPane.columnIndex="1" alignment="CENTER" onAction="#handlePercentPress" maxWidth="Infinity">%</Button>
+  <Button GridPane.rowIndex="3" GridPane.columnIndex="2" alignment="CENTER" onAction="#handleCEPress" maxWidth="Infinity">CE</Button>
+  <Button GridPane.rowIndex="3" GridPane.columnIndex="3" alignment="CENTER" onAction="#handleCPress" maxWidth="Infinity">C</Button>
+  <Button GridPane.rowIndex="3" GridPane.columnIndex="4" alignment="CENTER" onAction="#handleDeletePress" maxWidth="Infinity">Delete</Button>
+  <Button GridPane.rowIndex="3" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleDividePress" maxWidth="Infinity">/</Button>
+  <Button GridPane.rowIndex="4" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqRtPress" maxWidth="Infinity">SqRt</Button>
+  <Button GridPane.rowIndex="4" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle7Press" maxWidth="Infinity">7</Button>
+  <Button GridPane.rowIndex="4" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle8Press" maxWidth="Infinity">8</Button>
+  <Button GridPane.rowIndex="4" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle9Press" maxWidth="Infinity">9</Button>
+  <Button GridPane.rowIndex="4" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleMultiplyPress" maxWidth="Infinity">*</Button>
+  <Button GridPane.rowIndex="5" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleSqPress" maxWidth="Infinity">Square</Button>
+  <Button GridPane.rowIndex="5" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle4Press" maxWidth="Infinity">4</Button>
+  <Button GridPane.rowIndex="5" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle5Press" maxWidth="Infinity">5</Button>
+  <Button GridPane.rowIndex="5" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle6Press" maxWidth="Infinity">6</Button>
+  <Button GridPane.rowIndex="5" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleSubtractPress" maxWidth="Infinity">-</Button>
+  <Button GridPane.rowIndex="6" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleCuPress" maxWidth="Infinity">Cube</Button>
+  <Button GridPane.rowIndex="6" GridPane.columnIndex="2" alignment="CENTER" onAction="#handle1Press" maxWidth="Infinity">1</Button>
+  <Button GridPane.rowIndex="6" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle2Press" maxWidth="Infinity">2</Button>
+  <Button GridPane.rowIndex="6" GridPane.columnIndex="4" alignment="CENTER" onAction="#handle3Press" maxWidth="Infinity">3</Button>
+  <Button GridPane.rowIndex="6" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleAddPress" maxWidth="Infinity">+</Button>
+  <Button GridPane.rowIndex="7" GridPane.columnIndex="1" alignment="CENTER" onAction="#handleInvertPress" maxWidth="Infinity">Invert</Button>
+  <Button GridPane.rowIndex="7" GridPane.columnIndex="2" alignment="CENTER" onAction="#handleNegatePress" maxWidth="Infinity">(-)</Button>
+  <Button GridPane.rowIndex="7" GridPane.columnIndex="3" alignment="CENTER" onAction="#handle0Press" maxWidth="Infinity">0</Button>
+  <Button GridPane.rowIndex="7" GridPane.columnIndex="4" alignment="CENTER" onAction="#handleDotPress" maxWidth="Infinity">.</Button>
+  <Button GridPane.rowIndex="7" GridPane.columnIndex="5" alignment="CENTER" onAction="#handleEqualsPress" maxWidth="Infinity">=</Button>
 </GridPane>
