@@ -25,13 +25,13 @@ public class Controller {
   @FXML protected void handleCEPress(){
     String temp = mainWriteArea.getText().substring(0, mainWriteArea.getText().lastIndexOf(" "));
     mainWriteArea.clear();
-    mainWriteArea.appendText(temp);
+    mainWriteArea.appendText(" "+temp);
     cll.addNode(mainWriteArea.getText());
   }
 
   @FXML protected void handlePercentPress(){
     String contents = mainWriteArea.getText().trim();
-    if (!contents.equals("")) {
+    if (!contents.equals("") && !contents.equals("-")) {
       String input = mainWriteArea.getText();
       ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
       String temp = (Double.parseDouble(stringList.get(stringList.size()-1)))/100 +"";
@@ -117,7 +117,7 @@ public class Controller {
 
   @FXML protected void handleSqRtPress(){
     String contents = mainWriteArea.getText().trim();
-    if (!contents.equals("")) {
+    if (!contents.equals("") && !contents.equals("-")) {
       String input = mainWriteArea.getText();
       ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
       String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), .5) +"";
@@ -137,7 +137,7 @@ public class Controller {
 
   @FXML protected void handleInvertPress(){
     String contents = mainWriteArea.getText().trim();
-    if (!contents.equals("")) {
+    if (!contents.equals("") && !contents.equals("-")) {
       String input = mainWriteArea.getText();
       ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
       String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), -1) +"";
@@ -189,7 +189,7 @@ public class Controller {
 
   @FXML protected void handleSqPress(){
     String contents = mainWriteArea.getText().trim();
-    if (!contents.equals("")) {
+    if (!contents.equals("") && !contents.equals("-")) {
       String input = mainWriteArea.getText();
       ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
       String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), 2) +"";
@@ -209,7 +209,7 @@ public class Controller {
 
   @FXML protected void handleCuPress(){
     String contents = mainWriteArea.getText().trim();
-    if (!contents.equals("")) {
+    if (!contents.equals("") && !contents.equals("-")) {
       String input = mainWriteArea.getText();
       ArrayList<String> stringList = new ArrayList<>(Arrays.asList(input.split(" ")));
       String temp = Math.pow(Double.parseDouble(stringList.get(stringList.size()-1)), 3) +"";
