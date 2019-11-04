@@ -26,7 +26,7 @@
     <RowConstraints vgrow="SOMETIMES" minHeight="10" percentHeight="12" prefHeight="100" />
     <RowConstraints vgrow="SOMETIMES" minHeight="1" percentHeight="1" prefHeight="1" />
   </rowConstraints>
-  <Button GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#Undo" maxWidth="Infinity" maxHeight="Infinity" textAlignment="CENTER">Undo</Button>
+  <Button GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#Undo" maxWidth="Infinity" maxHeight="Infinity" textAlignment="CENTER" >Undo</Button>
   <Button GridPane.rowIndex="1" GridPane.columnIndex="4" GridPane.columnSpan="2" onAction="#Redo" maxWidth="Infinity" maxHeight="Infinity" textAlignment="CENTER">Redo</Button>
   <TextArea GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="5" editable="false" fx:id="mainWriteArea" text=" "/>
   <Button GridPane.rowIndex="3" GridPane.columnIndex="1" alignment="CENTER" onAction="#handlePercentPress" maxWidth="Infinity" maxHeight="Infinity">%</Button>
