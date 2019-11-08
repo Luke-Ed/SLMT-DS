@@ -17,7 +17,7 @@ public class Main extends Application {
       primaryStage.setScene(new Scene(root, 1000, 600));
       primaryStage.show();
     }
-
+    //Card Size in inches: 2.45x3.5; I'm probably going do double this for some of my design work 4.9*7
 
   public static void main(String[] args) {
         launch(args);
