@@ -14,7 +14,7 @@
     <Label text="Welcome to Yuno, a blatant Uno ripoff. " GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <Label text="Press Continue to get started" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
     <Button text="Continue" onAction="#Continue_Button" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-    <ImageView fx:id="background_image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <ImageView fx:id="background_image" GridPane.columnIndex="1" GridPane.rowIndex="4" rotate="30"/>
   </GridPane>
   <GridPane fx:id="GridPane_Setup" visible="false" alignment="CENTER" hgap="10" vgap="10">
     <Label text="How many players would you like in your game?" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="4"/>
@@ -30,7 +30,7 @@
   <GridPane fx:id="GridPane_Game" visible="false" alignment="CENTER" hgap="10" vgap="10">
   <Label text="Game content goes here." GridPane.rowIndex="1"/>
     <ImageView GridPane.columnIndex="1" GridPane.rowIndex="2" >
-      <Image url="@/fxml/assets/yuno-card-background.png"/>
+      <Image url="@/fxml/assets/yuno-card-background.png" requestedWidth="300" preserveRatio="true" smooth="true" />
     </ImageView>
   </GridPane>
 </GridPane>
