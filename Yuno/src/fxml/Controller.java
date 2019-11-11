@@ -12,8 +12,11 @@ public class Controller {
   @FXML protected ImageView background_image;
 
   @FXML protected void initialize(){
-    Image bkg_img = new Image("file:assets/yuno-card-background.png", 300, 0, true,false, true);
+    //Image bkg_img = new Image("/assets/yuno-card-background.png", 300, 0, true,false, true);
     //Image bkg_img = new Image("https://www.google.com/logos/doodles/2019/veterans-day-2019-4689153982726144-l.png", true);
+    //Image bkg_img = new Image("https://github.com/Luke-Ed/DS-BS/blob/master/Yuno/src/fxml/assets/yuno-card-background.png");
+    //Image bkg_img = new Image("file:yuno-card-background.png");
+    Image bkg_img = new Image("fxml/assets/yuno-card-background.png",300, 0, true, true, true);
     background_image.setImage(bkg_img);
   }
   @FXML protected void Continue_Button(){
