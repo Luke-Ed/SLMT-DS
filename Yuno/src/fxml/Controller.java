@@ -20,7 +20,7 @@ public class Controller {
   //    background_image.setImage(bkg_img);
   //
   @FXML protected void initialize(){
-    Image bkg_img = new Image("fxml/assets/yuno-card-background.png",300, 0, true, true, true);
+    Image bkg_img = new Image("fxml/assets/yuno-card-background.png", 0, 300, true, true, true);
     background_image.setImage(bkg_img);
   }
   @FXML protected void Continue_Button(){
