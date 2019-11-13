@@ -35,3 +35,9 @@
   </GridPane>
 </GridPane>
 
+<!--
+In order to display in image using an image view it must have the following structure
+  <ImageView>
+    <Image url="" /> You must use an @ to designate a local file.
+  </ImageView>
+-->
