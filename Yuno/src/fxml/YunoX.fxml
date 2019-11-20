@@ -25,7 +25,7 @@
     <RadioButton text="1 Player" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons" selected="true"/>
     I'm planning to remove this, as this option doesn't make sense to me
     -->
-    <RadioButton text="2 Players" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons"/>
+    <RadioButton text="2 Players" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons" selected="true"/>
     <RadioButton text="3 Players" GridPane.rowIndex="2" GridPane.columnIndex="2" toggleGroup="$PlayerButtons"/>
     <RadioButton text="4 Players" GridPane.rowIndex="2" GridPane.columnIndex="3" toggleGroup="$PlayerButtons"/>
     <Button text="Continue" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="3" onAction="#Continue_To_Game_Button" maxWidth="Infinity"/>
@@ -48,7 +48,7 @@
 
 <!--
 In order to display in image using an image view it must have the following structure
-  <ImageView>         Rotation can be added by adding a rotate tag to the imageview. ie rotate="ammount_to_rotate_in_deg"
+  <ImageView>         Rotation can be added by adding a rotate tag to the image-view. ie rotate="amount_to_rotate_in_deg"
     <Image url="" />  You must use an @ to designate a local file. Always, remember to preserveRatio, and to smooth,
                       if you leave off the smooth, it scales the image, but gives a super jagged render
   </ImageView>
