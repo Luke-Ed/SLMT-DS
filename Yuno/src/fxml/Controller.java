@@ -28,6 +28,8 @@ public class Controller {
     background_image.setImage(bkg_img);
   }
   @FXML protected void Continue_Button(){
+    // This handles the button on the first page, and allows you to continue to the next page.
+    // The way we decided to handle this was by having multiple panes, and changing their visibility when we need them.
     GridPane_Welcome.setVisible(false);
     GridPane_Setup.setVisible(true);
   }
