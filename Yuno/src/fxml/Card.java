@@ -9,9 +9,11 @@ public class Card implements Comparator<Card> {
   private String getType() {
     return type;
   }
+
   private String getColor() {
     return color;
   }
+
   public Card(String type, String color){
     this.color = color;
     this.type = type;
@@ -26,4 +28,5 @@ public class Card implements Comparator<Card> {
       return  1;
     }
   }
+
 }
