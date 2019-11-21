@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
+<?import javafx.scene.control.ListView?>
 <GridPane fx:controller="fxml.Controller" xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10">
   <GridPane fx:id="GridPane_Welcome" alignment="CENTER" hgap="10" vgap="10">
     <Label text="Welcome to Yuno, a blatant Uno ripoff. " GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -44,7 +45,7 @@
       </ImageView>
     </GridPane>
     <GridPane> <!-- GridPane for me to play with things... -->
-      <RadioButton />
+      <ListView orientation="HORIZONTAL" fx:id="PlayerHandListView"/>
     </GridPane>
   </GridPane>
 

@@ -1,6 +1,7 @@
 package fxml;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -8,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class Controller {
+  public ListView PlayerHandListView;
   @FXML protected GridPane GridPane_Welcome;
   @FXML protected GridPane GridPane_Setup;
   @FXML protected GridPane GridPane_Game;
