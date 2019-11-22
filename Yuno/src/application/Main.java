@@ -23,10 +23,10 @@ public class Main extends Application {
 	//Game Variables
 	int players;
 	
-//	Player p1 = new Player();
-//	Player p2 = new Player();
-//	Player p3 = new Player();
-//	Player p4 = new Player();
+//	fxml.Player p1 = new fxml.Player();
+//	fxml.Player p2 = new fxml.Player();
+//	fxml.Player p3 = new fxml.Player();
+//	fxml.Player p4 = new fxml.Player();
 	
 	//GUI Variables
 	Button btnOpening = new Button("Let's get started!");

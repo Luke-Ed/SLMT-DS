@@ -1,3 +1,5 @@
+import fxml.Deck;
+import fxml.Player;
 
 public class Test {
 	public static void main(String[] args) {
@@ -13,7 +15,7 @@ public class Test {
 		System.out.println("The deck size is "+deck.size());
 		System.out.println("discard deck has "+ discard.size());
 		Player Shelby = new Player("Shelby", deck, discard);
-		System.out.println("Player's name is "+Shelby.getName());
+		System.out.println("fxml.Player's name is "+Shelby.getName());
 		System.out.println("Their hand size is:\n"+ Shelby.getHand().size());
 		System.out.println("Their hand has:\n"+ Shelby.handToString());
 		System.out.println("The deck size is "+deck.size());
