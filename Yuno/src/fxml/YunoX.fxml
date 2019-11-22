@@ -45,7 +45,7 @@
       </ImageView>
     </GridPane>
     <GridPane> <!-- GridPane for me to play with things... -->
-      <ListView orientation="HORIZONTAL" fx:id="PlayerHandListView" cellFactory="CustomListCell"/>
+      <ListView orientation="HORIZONTAL" fx:id="PlayerHandListView"/>
     </GridPane>
   </GridPane>
 
