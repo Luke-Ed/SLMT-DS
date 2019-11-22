@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class Controller {
-  public ListView PlayerHandListView;
+  @FXML protected ListView PlayerHandListView;
   @FXML protected GridPane GridPane_Welcome;
   @FXML protected GridPane GridPane_Setup;
   @FXML protected GridPane GridPane_Game;

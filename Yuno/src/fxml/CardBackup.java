@@ -2,7 +2,9 @@ package fxml;
 
 import javafx.scene.image.Image;
 
-public class Card implements Comparable<Card> {
+import java.util.Comparator;
+
+public class CardBackup implements Comparator<CardBackup> {
   private String type;
   private String color;
   private Image cardImage;
@@ -18,7 +20,7 @@ public class Card implements Comparable<Card> {
   Image getCardImage(){
     return cardImage;
   }
-  public Card(String type, String color){
+  public CardBackup(String type, String color){
     this.color = color;
     this.type = type;
     String url = "fxml/assets/"+type+"_"+color;
@@ -26,8 +28,8 @@ public class Card implements Comparable<Card> {
   }
 
   @Override
-  public int compareTo(Card o1) {
-    if (this.getType().equals(o1.getType()) || this.getColor().equals(o1.getColor())){
+  public int compare(CardBackup o1, CardBackup o2) {
+    if (o1.getType().equals(o2.getType()) || o1.getColor().equals(o2.getColor())){
       return 0;
     }
     else {
