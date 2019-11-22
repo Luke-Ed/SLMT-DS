@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class Controller {
-  @FXML protected ListView PlayerHandListView;
+  @FXML protected ListView<Card> PlayerHandListView;
   @FXML protected GridPane GridPane_Welcome;
   @FXML protected GridPane GridPane_Setup;
   @FXML protected GridPane GridPane_Game;
@@ -28,6 +28,7 @@ public class Controller {
   @FXML protected void initialize(){
     Image bkg_img = new Image("fxml/assets/yuno-card-background.png", 0, 300, true, true, true);
     background_image.setImage(bkg_img);
+    PlayerHandListView.setCellFactory(PlayerHandListView -> new CustomListCell());
   }
   @FXML protected void Continue_Button(){
     // This handles the button on the first page, and allows you to continue to the next page.
