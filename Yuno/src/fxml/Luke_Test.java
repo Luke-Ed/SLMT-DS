@@ -2,6 +2,7 @@ package fxml;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -9,7 +10,7 @@ import javafx.stage.Stage;
 
 public class Luke_Test extends Application {
   public static void main(String[] args){
-
+    launch();
   }
 
   @Override
@@ -19,7 +20,11 @@ public class Luke_Test extends Application {
     GridPane gridPane = new GridPane();
     ImageView imageView = new ImageView();
     imageView.setImage(c.getCardImage());
-    Scene scene = new Scene(gridPane, 600, 1000);
+    gridPane.add(new Label("Test"), 0, 0);
+    gridPane.add(imageView, 0, 1);
+    Scene scene = new Scene(gridPane, 1000, 600);
     primaryStage.setScene(scene);
+    primaryStage.setTitle("Luke Test");
+    primaryStage.show();
   }
 }
