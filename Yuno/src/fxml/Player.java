@@ -7,19 +7,21 @@ public class Player {
   private String name;
   private Deck deck;
   private Deck discard;
-  private List<Card> hand = new ArrayList<Card>();
+  private List<Card> hand = new ArrayList<>();
 
   public Player(String name, Deck deck, Deck discard) {
     this.name = name;
     this.deck = deck;
     this.discard = discard;
-    for (int i=0; i<7; i++) {this.draw();}
+    for (int i=0; i<7; i++) {
+      this.draw();
+    }
   }
 
   String handToString() {
     StringBuilder cards = new StringBuilder();
     for (Card card : hand) {
-      cards.append(card.toString()+"\n");
+      cards.append(card.toString()).append("\n");
     }
     return cards.toString();
   }
