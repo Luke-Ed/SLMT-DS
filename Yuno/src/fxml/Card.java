@@ -18,10 +18,11 @@ public class Card implements Comparable<Card> {
   Image getCardImage(){
     return cardImage;
   }
+
   Card(String type, String color){
     this.color = color;
     this.type = type;
-    String url = "fxml/assets/"+type+"_"+color;
+    String url = "fxml/assets/"+type+"_"+color+".png";
     cardImage = new Image(url);
   }
 
