@@ -1,30 +1,39 @@
-//package application;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-	String name;
-	Deck deck;
-	List<Card> hand = new ArrayList<Card>();
+	private String name;
+	private Deck deck;
+	private Deck discard;
+	private List<Card> hand = new ArrayList<Card>();
 
-	public Player(String name, Deck deck) {
+	public Player(String name, Deck deck, Deck discard) {
 		this.name = name;
 		this.deck = deck;
-		for (int i=0; i<7; i++) {this.drawCard();}
+		this.discard = discard;
+		for (int i=0; i<7; i++) {this.draw();}
 	}
 	
-	public String getHand() {
-		String cards = "";
-		for (int i=0; i<hand.size(); i++) {
-			cards += (hand.get(i).toString());
+	String handToString() {
+		StringBuilder cards = new StringBuilder();
+		for (Card card : hand) {
+			cards.append(card.toString()+"\n");
 		}
-		return cards;
+		return cards.toString();
 	}
-	public String getName() {
+	ArrayList<Card> getHand(){
+		return (ArrayList<Card>) hand;
+	}
+	String getName() {
 		return this.name;
 	}
-	public void drawCard() {
+	void draw() {
 		hand.add(deck.draw());
+	}
+	
+	boolean play(Card c) {
+		if (c.compare(discard.top()){
+			
+		}
 	}
 }
