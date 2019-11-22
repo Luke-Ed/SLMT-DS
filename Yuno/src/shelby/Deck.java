@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
+import fxml.Card;
 
 public class Deck {
 	private Stack<Card> deck = new Stack<Card>();
