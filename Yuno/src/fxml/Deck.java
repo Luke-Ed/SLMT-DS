@@ -13,12 +13,15 @@ public class Deck {
   void fill() {
     for(int s=0; s<2; s++) {
       for (int i=0; i<4; i++) {
-        for (int j=1; j<11; j++) {
+        for (int j=0; j<10; j++) {
           String[] colors = {"Purple", "Blue", "Pink", "Green"};
           deck.add(new Card(colors[i], (j+"")));
         }
       }
     }
+    //ToDo: for loop to build special cards, will need x12 +2s, x6 wild +4, x6 wild plain(?)
+    // store special types in "special" string[], build them through with loop
+    // values will be "+2+, "+4", and "wild" (if i have to tell you what goes where, i wont)
     ArrayList<Card> orderedDeck = new ArrayList<Card>(deck);
     Collections.shuffle(orderedDeck);
     deck.clear();
