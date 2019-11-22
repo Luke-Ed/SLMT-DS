@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="Calculator/src"/>
+	<classpathentry kind="src" path="Yuno/src/shelby"/>
+	<classpathentry kind="src" path="Yuno/src/fxml"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

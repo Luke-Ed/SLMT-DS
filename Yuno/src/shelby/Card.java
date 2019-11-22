@@ -1,32 +1,32 @@
-package shelby;
 
-public class Card {
-	private String color;
-	private int value;
-	
-	Card(String color, int value) {
-		this.color = color;
-		this.value = value;
-	}
-	
-	String getColor() {
-		return this.color;
-	}
-	
-	int getValue() {
-		return this.value;
-	}
-	
-	public boolean playable(Card c2) {
-		return this.getColor().equals(c2.getColor()) || this.getValue() == c2.getValue();
-	}
-	
-	@Override
-	public String toString() {
-		String cardstr = "";
-		cardstr += (this.getColor()+", ");
-		cardstr += (this.getValue()+"\n");
-		return cardstr;
-	}
+
+import java.util.Comparator;
+
+public class Card implements Comparator<Card> {
+  private String type;
+  private String color;
+
+  private String getType() {
+    return type;
+  }
+
+  private String getColor() {
+    return color;
+  }
+
+  public Card(String type, String color){
+    this.color = color;
+    this.type = type;
+  }
+
+  @Override
+  public int compare(Card o1, Card o2) {
+    if (o1.getType().equals(o2.getType()) || o1.getColor().equals(o2.getColor())){
+      return 0;
+    }
+    else {
+      return  1;
+    }
+  }
 
 }

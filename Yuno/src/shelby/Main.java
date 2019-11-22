@@ -1,20 +1,12 @@
-package shelby;
-	
-import java.util.ArrayList;
-import java.util.Collections;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -174,10 +166,5 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch();
-		Deck deck = new Deck();
-		System.out.println("The deck size is "+deck.size());
-		Player Shelby = new Player("Shelby", deck);
-		System.out.println("Player's name is "+Shelby.getName());
-		System.out.println("Their hand has:\n"+ Shelby.getHand());
 	}
 }
