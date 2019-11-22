@@ -18,7 +18,7 @@ public class Card implements Comparable<Card> {
   Image getCardImage(){
     return cardImage;
   }
-  public Card(String type, String color){
+  Card(String type, String color){
     this.color = color;
     this.type = type;
     String url = "fxml/assets/"+type+"_"+color;
