@@ -1,4 +1,4 @@
-package application;
+//package application;
 
 public class Card {
 	private String color;

@@ -1,4 +1,4 @@
-package application;
+//package application;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +9,7 @@ public class Deck {
 	ArrayList<Card> orderedDeck = new ArrayList<Card>();
 	Stack<Card> deck = new Stack<Card>();
 	
-	public Deck() {
+	public Deck(int full) {
 		for(int s=0; s<2; s++) {
 			for (int i=0; i<4; i++) {
 				for (int j=1; j<11; j++) {
@@ -27,11 +27,19 @@ public class Deck {
 		}
 	}
 	
+	public Deck() {
+		
+	}
+	
 	public Card draw() {
 		return deck.pop();
 	}
 	
 	public int size() {
 		return deck.size();
+	}
+	
+	void add(Card c) {
+		deck.push(c);
 	}
 }

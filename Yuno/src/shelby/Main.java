@@ -1,4 +1,4 @@
-package application;
+//package application;
 	
 import java.util.ArrayList;
 import java.util.Collections;
@@ -174,10 +174,20 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch();
-		Deck deck = new Deck();
+		Deck deck = new Deck(1);
+		Deck discard = new Deck();
 		System.out.println("The deck size is "+deck.size());
+		System.out.println("discard deck has "+ discard.size());
 		Player Shelby = new Player("Shelby", deck);
 		System.out.println("Player's name is "+Shelby.getName());
 		System.out.println("Their hand has:\n"+ Shelby.getHand());
+		System.out.println("The deck size is "+deck.size());
+		System.out.println("Draw card");
+		Shelby.drawCard();
+		System.out.println("The deck size is "+deck.size());
+		System.out.println("New hand is "+ Shelby.getHand());
+		discard.add(deck.draw());
+		System.out.println("Discard size "+discard.size());
+		System.out.println("The deck size is "+deck.size());
 	}
 }
