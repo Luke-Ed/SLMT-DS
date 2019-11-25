@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Stack;
 
 public class Deck {
-  private Stack<Card> deck = new Stack<Card>();
+  private Stack<Card> deck = new Stack<>();
 
   public Deck() {
   }
@@ -24,7 +24,7 @@ public class Deck {
     // values will be "+2+, "+4", and "wild" (if i have to tell you what goes where, i wont)
 
     //Todo: for @saparrish We forgot to include Skip Cards in our special cards, not sure how you want to handle that.
-    ArrayList<Card> orderedDeck = new ArrayList<Card>(deck);
+    ArrayList<Card> orderedDeck = new ArrayList<>(deck);
     Collections.shuffle(orderedDeck);
     deck.clear();
     deck.addAll(orderedDeck);
