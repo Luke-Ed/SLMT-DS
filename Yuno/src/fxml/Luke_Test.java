@@ -40,15 +40,10 @@ public class Luke_Test extends Application {
     // The code here creates a ListView, set's the cards to be the items in the ListView. The ListView's orientation is also changed to be horizontal.
     //listView.setCellFactory(cardListView -> new CustomListCell());
 
-    listView.setCellFactory(new Callback<ListView<Card>, ListCell<Card>>() {
-      @Override
-      public ListCell<Card> call(ListView<Card> param) {
-        return new CustomListCell();
-      }
-    });
+    listView.setCellFactory(cardListView -> new CustomListCell());
 
     gridPane.add(new Label("Test"), 0, 0);
-    gridPane.add(imageView, 0, 1);
+    //gridPane.add(imageView, 0, 1);
     gridPane.add(listView, 0, 2);
     //Some of the other elements to be displayed on our GUI
 
