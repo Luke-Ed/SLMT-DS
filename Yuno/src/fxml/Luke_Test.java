@@ -6,12 +6,10 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 
 public class Luke_Test extends Application {
@@ -20,7 +18,7 @@ public class Luke_Test extends Application {
   }
 
   @Override
-  public void start(Stage primaryStage) throws Exception {
+  public void start(Stage primaryStage) {
     Card c = new Card("1", "purple");
     Card d = new Card("2", "purple");
     Card e = new Card("3", "purple");
@@ -42,7 +40,6 @@ public class Luke_Test extends Application {
     listView.setOrientation(Orientation.HORIZONTAL);
     listView.setItems(player1cards);
     // The code here creates a ListView, set's the cards to be the items in the ListView. The ListView's orientation is also changed to be horizontal.
-    //listView.setCellFactory(cardListView -> new CustomListCell());
 
     listView.setCellFactory(cardListView -> new CustomListCell());
 
