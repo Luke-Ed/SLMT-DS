@@ -22,11 +22,15 @@ public class Luke_Test extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
     Card c = new Card("1", "purple");
+    Card d = new Card("2", "purple");
+    Card e = new Card("3", "purple");
     // Create a card that will be defined, ie having a matching file.
 
     ObservableList<Card> player1cards;
     player1cards = FXCollections.observableArrayList();
     player1cards.add(c);
+    player1cards.add(d);
+    player1cards.add(e);
     // Create an observable list, which is necessary to display an ArrayList on a ListView, from what I've seen online.
 
     GridPane gridPane = new GridPane();
