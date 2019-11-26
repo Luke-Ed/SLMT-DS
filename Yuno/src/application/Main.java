@@ -3,15 +3,12 @@ package application;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -21,7 +18,7 @@ import javafx.scene.layout.VBox;
 public class Main extends Application {	
 	
 	//Game Variables
-	int players;
+	private int players;
 	
 //	fxml.Player p1 = new fxml.Player();
 //	fxml.Player p2 = new fxml.Player();
@@ -29,21 +26,22 @@ public class Main extends Application {
 //	fxml.Player p4 = new fxml.Player();
 	
 	//GUI Variables
-	Button btnOpening = new Button("Let's get started!");
-	Button btnStartGame = new Button("Start your game!");
+	private Button btnOpening = new Button("Let's get started!");
+	private Button btnStartGame = new Button("Start your game!");
 	
-	HBox hbCreateGame = new HBox();
-	HBox hbGame = new HBox();
+	private HBox hbCreateGame = new HBox();
+	private HBox hbGame = new HBox();
 	
-	Label lblOpening = new Label("Welcome to Yuno!");
+	private Label lblOpening = new Label("Welcome to Yuno!");
 	
-	RadioButton rb1p = new RadioButton("1 player");
-	RadioButton rb2p = new RadioButton("2 players");
-	RadioButton rb3p = new RadioButton("3 players");
-	RadioButton rb4p = new RadioButton("4 players");
+	private RadioButton rb1p = new RadioButton("1 player");
+	private RadioButton rb2p = new RadioButton("2 players");
+	private RadioButton rb3p = new RadioButton("3 players");
+	private RadioButton rb4p = new RadioButton("4 players");
 	
 	ToggleGroup tgNumPlayers = new ToggleGroup();
-	
+
+
 	///////////////
 	
 	@Override
@@ -56,18 +54,19 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Yuno");
 			primaryStage.show();
-		} catch(Exception e) {
+		}
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public GridPane buildGui() {
+	private GridPane buildGui() {
 		GridPane grdPane = new GridPane();
 		grdPane.getChildren().addAll(buildOpeningPane(), buildCreateGamePane(), buildGamePane());
 		return grdPane;
 	}
 	
-	public Pane buildOpeningPane() {
+	private Pane buildOpeningPane() {
 		HBox root = new HBox();
 		VBox vbOpening = new VBox();
 		btnOpening.setOnAction(new EHbtnOpening());
@@ -77,7 +76,7 @@ public class Main extends Application {
 		return root;
 	}
 	
-	public Pane buildCreateGamePane() {
+	private Pane buildCreateGamePane() {
 		hbCreateGame.setVisible(false);
 		VBox vbSetPlayers = new VBox();
 		vbSetPlayers.getChildren().add(new Label("How many players?"));
@@ -95,7 +94,7 @@ public class Main extends Application {
 		return hbCreateGame;
 	}
 	
-	public Pane buildGamePane() {
+	private Pane buildGamePane() {
 		hbGame.setVisible(false);
 		Label lbltest = new Label("actual gameplay will go here");
 		

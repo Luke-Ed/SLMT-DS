@@ -19,15 +19,11 @@ public class Deck {
         }
       }
     }
-    for (int i=0; i<4; i++){
-      String[] colors = {"Purple", "Blue", "Pink", "Green"};
-      String[] special = {"+2", "+4", "Skip"};
-      for (int j=0; j<3; j++){
-        deck.add(new Card(colors[i], special[j]));
-      }
-      deck.add(new Card("Wild", "Wild"));
-    }
+    //ToDo: for loop to build special cards, will need x12 +2s, x6 wild +4, x6 wild plain(?)
+    // store special types in "special" string[], build them through with loop
+    // values will be "+2+, "+4", and "wild" (if i have to tell you what goes where, i wont)
 
+    //Todo: for @saparrish We forgot to include Skip Cards in our special cards, not sure how you want to handle that.
     ArrayList<Card> orderedDeck = new ArrayList<>(deck);
     Collections.shuffle(orderedDeck);
     deck.clear();
