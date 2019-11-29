@@ -14,7 +14,7 @@ public class Deck {
     for(int s=0; s<2; s++) {
       for (int i=0; i<4; i++) {
         for (int j=0; j<10; j++) {
-          String[] colors = {"Purple", "Blue", "Pink", "Green"};
+          String[] colors = {"purple", "blue", "pink", "green"};
           deck.add(new Card(colors[i], (j+"")));
         }
       }
