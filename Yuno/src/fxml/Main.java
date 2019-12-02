@@ -14,7 +14,9 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception{
     Parent root = FXMLLoader.load(getClass().getResource("YunoX.fxml"));
       primaryStage.setTitle("Yuno");
-      primaryStage.setScene(new Scene(root, 1000, 600));
+      Scene primary = new Scene(root, 1000, 600);
+      primary.getStylesheets().add("fxml/dark_mode.css");
+      primaryStage.setScene(primary);
       primaryStage.show();
     }
     //Card Size in inches: 2.45x3.5; I'm probably going do double this for some of my design work 4.9*7

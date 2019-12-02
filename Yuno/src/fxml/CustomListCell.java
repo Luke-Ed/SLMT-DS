@@ -4,8 +4,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
 
 public class CustomListCell extends ListCell<Card> {
 
@@ -24,6 +28,9 @@ public class CustomListCell extends ListCell<Card> {
       VBox content = new VBox(imageView, color, number);
       content.setPadding(new Insets(0,5,0,5));
       content.setAlignment(Pos.CENTER);
+      if (isSelected()){
+        setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
+      }
       setGraphic(content);
     }
   }

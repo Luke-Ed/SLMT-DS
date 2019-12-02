@@ -37,6 +37,7 @@ public class ListViewTest extends Application {
     gridPane.add(hand1view,0,0);
 
     Scene scene = new Scene(gridPane, 1000, 800);
+    scene.getStylesheets().add("fxml/dark_mode.css");
     primaryStage.setScene(scene);
     primaryStage.setTitle("ListViewTest");
     primaryStage.show();
