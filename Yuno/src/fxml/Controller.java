@@ -14,10 +14,11 @@ public class Controller {
   @FXML protected GridPane GridPane_Welcome;
   @FXML protected GridPane GridPane_Setup;
   @FXML protected GridPane GridPane_Game;
+  @FXML protected GridPane Player_3_N_GP;
+  @FXML protected GridPane Player_4_N_GP;
   @FXML protected ImageView background_image;
   @FXML protected ToggleGroup PlayerButtons;
   @FXML protected Label Player;
-  private int numPlayers; // For usage when generating players and hands, because this code hasn't been written yet, we have a warning.
   //
   //  Just because I couldn't find it documented well online, I thought I would include
   //  a few options for how to add an image to an image view using an initialize in the controller
@@ -41,14 +42,11 @@ public class Controller {
   @FXML protected void Continue_To_Game_Button(){
     GridPane_Setup.setVisible(false);
     String Selected =  ((RadioButton)PlayerButtons.getSelectedToggle()).getText();
-    if (Selected.equals("2 Players")) {
-      numPlayers = 2;
-    }
-    else if (Selected.equals("3 Players")) {
-      numPlayers = 3;
+    if (Selected.equals("3 Players")) {
+      Player_3_N_GP.setVisible(true);
     }
     else {
-      numPlayers = 4;
+      Player_3_N_GP.setVisible(true);
     }
     GridPane_Game.setVisible(true);
   }
