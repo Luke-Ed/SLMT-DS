@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<?import javafx.scene.control.ListView?>
 <GridPane fx:controller="fxml.Controller" xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10">
   <GridPane fx:id="GridPane_Welcome" alignment="CENTER" hgap="10" vgap="10">
     <Label text="Welcome to Yuno, a blatant Uno ripoff. " GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -22,10 +21,6 @@
     <fx:define>
       <ToggleGroup fx:id="PlayerButtons"/>
     </fx:define>
-    <!--
-    <RadioButton text="1 fxml.Player" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons" selected="true"/>
-    I'm planning to remove this, as this option doesn't make sense to me
-    -->
     <RadioButton text="2 Players" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons" selected="true"/>
     <RadioButton text="3 Players" GridPane.rowIndex="2" GridPane.columnIndex="2" toggleGroup="$PlayerButtons"/>
     <RadioButton text="4 Players" GridPane.rowIndex="2" GridPane.columnIndex="3" toggleGroup="$PlayerButtons"/>
@@ -43,9 +38,6 @@
       <ImageView GridPane.columnIndex="1" GridPane.rowIndex="3" >
         <Image url="@/fxml/assets/yuno-card-background.png" requestedHeight="300" preserveRatio="true" smooth="true" />
       </ImageView>
-    </GridPane>
-    <GridPane> <!-- GridPane for me to play with things... -->
-      <ListView orientation="HORIZONTAL" fx:id="PlayerHandListView"/>
     </GridPane>
   </GridPane>
 
