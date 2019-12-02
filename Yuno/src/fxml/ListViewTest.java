@@ -17,10 +17,10 @@ public class ListViewTest extends Application {
 
   @Override
   public void start(Stage primaryStage) {
-    Deck deck = new Deck();
-    deck.fill();
+    Deck deck_1 = new Deck();
+    deck_1.fill();
     Deck discard = new Deck();
-    Player player1 = new Player("player1", deck, discard);
+    Player player1 = new Player("player1", deck_1, discard);
     ObservableList<Card> player1hand = FXCollections.observableArrayList();
     player1hand.addAll(player1.getHand());
 

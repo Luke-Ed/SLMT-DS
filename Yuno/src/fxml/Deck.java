@@ -11,11 +11,12 @@ public class Deck {
   }
 
   void fill() {
+    ArrayList<Card> orderedDeck = new ArrayList<>();
     for(int s=0; s<2; s++) {
       for (int i=0; i<4; i++) {
         for (int j=0; j<10; j++) {
           String[] colors = {"purple", "blue", "pink", "green"};
-          deck.add(new Card((j+""), colors[i]));
+          orderedDeck.add(new Card((j+""), colors[i]));
         }
       }
     }
@@ -24,9 +25,7 @@ public class Deck {
     // values will be "+2", "+4", and "wild" (if i have to tell you what goes where, i wont)
 
     //Todo: for @saparrish We forgot to include Skip Cards in our special cards, not sure how you want to handle that.
-    ArrayList<Card> orderedDeck = new ArrayList<>(deck);
     Collections.shuffle(orderedDeck);
-    deck.clear();
     deck.addAll(orderedDeck);
   }
 

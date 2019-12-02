@@ -1,13 +1,12 @@
 package fxml;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Player {
   private String name;
   private Deck deck;
   private Deck discard;
-  private List<Card> hand = new ArrayList<>();
+  private ArrayList<Card> hand = new ArrayList<>();
 
   public Player(String name, Deck deck, Deck discard) {
     this.name = name;
@@ -18,18 +17,11 @@ public class Player {
     }
   }
 
-  String handToString() {
-    StringBuilder cards = new StringBuilder();
-    for (Card card : hand) {
-      cards.append(card.toString()).append("\n");
-    }
-    return cards.toString();
-  }
   ArrayList<Card> getHand(){
-    return (ArrayList<Card>) hand;
+    return hand;
   }
   String getName() {
-    return this.name;
+    return name;
   }
   void draw() {
     hand.add(deck.draw());

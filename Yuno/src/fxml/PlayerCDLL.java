@@ -19,5 +19,17 @@ public class PlayerCDLL {
   }
   void addNode(Player player){
     Node NewNode = new Node(player);
+    if (size==0){
+      start = NewNode;
+      end = NewNode;
+      NewNode.next = end;
+      NewNode.previous = start;
+    }
+    else {
+      end.next = NewNode;
+      NewNode.previous = end;
+      end.next = start;
+    }
+    size++;
   }
 }

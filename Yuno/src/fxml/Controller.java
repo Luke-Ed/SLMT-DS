@@ -1,10 +1,7 @@
 package fxml;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -14,11 +11,18 @@ public class Controller {
   @FXML protected GridPane GridPane_Welcome;
   @FXML protected GridPane GridPane_Setup;
   @FXML protected GridPane GridPane_Game;
+  @FXML protected GridPane Player_1_N_GP;
+  @FXML protected GridPane Player_2_N_GP;
   @FXML protected GridPane Player_3_N_GP;
   @FXML protected GridPane Player_4_N_GP;
   @FXML protected ImageView background_image;
   @FXML protected ToggleGroup PlayerButtons;
   @FXML protected Label Player;
+  @FXML protected TextField p1_textfield;
+
+  protected PlayerCDLL players = new PlayerCDLL();
+  Deck deck = new Deck();
+  Deck discard = new Deck();
   //
   //  Just because I couldn't find it documented well online, I thought I would include
   //  a few options for how to add an image to an image view using an initialize in the controller
@@ -39,15 +43,28 @@ public class Controller {
     GridPane_Welcome.setVisible(false);
     GridPane_Setup.setVisible(true);
   }
-  @FXML protected void Continue_To_Game_Button(){
+  @FXML protected void Continue_To_Game_Button() {
     GridPane_Setup.setVisible(false);
+    GridPane_Game.setVisible(true);
+  }
+
+  @FXML protected void HandlePlayerToggle(){
     String Selected =  ((RadioButton)PlayerButtons.getSelectedToggle()).getText();
-    if (Selected.equals("3 Players")) {
+    if (Selected.equals("2 Players")){
+      Player_3_N_GP.setVisible(false);
+      Player_4_N_GP.setVisible(false);
+    }
+    else if (Selected.equals("3 Players")) {
       Player_3_N_GP.setVisible(true);
+      Player_4_N_GP.setVisible(false);
     }
     else {
       Player_3_N_GP.setVisible(true);
+      Player_4_N_GP.setVisible(true);
     }
-    GridPane_Game.setVisible(true);
+  }
+  @FXML protected void createPlayer1(){
+    players.addNode(new Player(p1_textfield.getText(), deck, discard));
+    Player_1_N_GP.setVisible(false);
   }
 }
