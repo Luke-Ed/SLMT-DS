@@ -14,14 +14,14 @@ public class Deck {
     for(int s=0; s<2; s++) {
       for (int i=0; i<4; i++) {
         for (int j=0; j<10; j++) {
-          String[] colors = {"Purple", "Blue", "Pink", "Green"};
-          deck.add(new Card(colors[i], (j+"")));
+          String[] colors = {"purple", "blue", "pink", "green"};
+          deck.add(new Card((j+""), colors[i]));
         }
       }
     }
     //ToDo: for loop to build special cards, will need x12 +2s, x6 wild +4, x6 wild plain(?)
     // store special types in "special" string[], build them through with loop
-    // values will be "+2+, "+4", and "wild" (if i have to tell you what goes where, i wont)
+    // values will be "+2", "+4", and "wild" (if i have to tell you what goes where, i wont)
 
     //Todo: for @saparrish We forgot to include Skip Cards in our special cards, not sure how you want to handle that.
     ArrayList<Card> orderedDeck = new ArrayList<>(deck);
