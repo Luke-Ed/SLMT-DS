@@ -42,9 +42,10 @@
       </ImageView>
     </GridPane>
     <GridPane GridPane.rowIndex="3" GridPane.columnIndex="1">
-      <ListView fx:id="PlayerHandListView" />
-      <Button text="Play Card" visible="false" />
-      <Button text="Draw Card" />
+      <ListView fx:id="PlayerHandListView" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="1"/>
+      <Button text="Play Card" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="1"/>
+      <Button text="Draw Card" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2"/>
+      <Button text="Call Yuno" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.columnIndex="4"/>
     </GridPane>
   </GridPane>
 
