@@ -9,6 +9,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.text.Text?>
 <GridPane fx:controller="fxml.Controller" xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10">
   <GridPane fx:id="GridPane_Welcome" alignment="CENTER" hgap="10" vgap="10">
     <Label text="Welcome to Yuno, a blatant Uno ripoff!" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -27,7 +29,7 @@
     <Button text="Continue" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="3" onAction="#Continue_To_Game_Button" maxWidth="Infinity"/>
   </GridPane>
   <GridPane fx:id="GridPane_Game" visible="false" alignment="CENTER" hgap="10" vgap="10">
-  <Label text="Game content goes here." GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Label fx:id="Player" />
     <GridPane GridPane.rowIndex="2" GridPane.columnIndex="1" vgap="-290"> <!-- fxml.Deck display GridPane -->
       <ImageView GridPane.columnIndex="1" GridPane.rowIndex="1" rotate="-5">
         <Image url="@/fxml/assets/yuno-card-background.png" requestedHeight="300" preserveRatio="true" smooth="true" />
@@ -38,6 +40,11 @@
       <ImageView GridPane.columnIndex="1" GridPane.rowIndex="3" >
         <Image url="@/fxml/assets/yuno-card-background.png" requestedHeight="300" preserveRatio="true" smooth="true" />
       </ImageView>
+    </GridPane>
+    <GridPane GridPane.rowIndex="3" GridPane.columnIndex="1">
+      <ListView fx:id="PlayerHandListView" />
+      <Button text="Play Card" visible="false" />
+      <Button text="Draw Card" />
     </GridPane>
   </GridPane>
 

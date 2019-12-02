@@ -1,6 +1,7 @@
 package fxml;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -15,6 +16,7 @@ public class Controller {
   @FXML protected GridPane GridPane_Game;
   @FXML protected ImageView background_image;
   @FXML protected ToggleGroup PlayerButtons;
+  @FXML protected Label Player;
   private int numPlayers; // For usage when generating players and hands, because this code hasn't been written yet, we have a warning.
   //
   //  Just because I couldn't find it documented well online, I thought I would include
