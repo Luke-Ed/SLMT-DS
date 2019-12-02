@@ -16,7 +16,7 @@ public class ListViewTest extends Application {
   }
 
   @Override
-  public void start(Stage primaryStage) throws Exception {
+  public void start(Stage primaryStage) {
     Deck deck = new Deck();
     deck.fill();
     Deck discard = new Deck();
