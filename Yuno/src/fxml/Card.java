@@ -23,7 +23,7 @@ public class Card implements Comparable<Card> {
     this.color = color;
     this.type = type;
     String url = "fxml/assets/"+type+"_"+color+".png";
-    cardImage = new Image(url, 0, 200, true, true);
+    cardImage = new Image(url);
   }
 
   @Override
