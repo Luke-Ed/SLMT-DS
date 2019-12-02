@@ -8,6 +8,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 
@@ -24,13 +26,14 @@ public class CustomListCell extends ListCell<Card> {
       String temp = c.getColor().substring(0,1).toUpperCase()+c.getColor().substring(1);
       Text color = new Text(temp);
       Text number = new Text(c.getType());
+      color.setFill(Color.rgb(255, 255, 255));
+      number.setFill(Color.rgb(255, 255, 255));
+      color.setFont(Font.font(null, FontWeight.MEDIUM, 16));
+      number.setFont(Font.font(null, FontWeight.MEDIUM, 16));
       ImageView imageView = new ImageView(c.getCardImage());
       VBox content = new VBox(imageView, color, number);
       content.setPadding(new Insets(0,5,0,5));
       content.setAlignment(Pos.CENTER);
-      if (isSelected()){
-        setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
-      }
       setGraphic(content);
     }
   }
