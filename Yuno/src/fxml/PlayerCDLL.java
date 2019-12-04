@@ -5,6 +5,7 @@ public class PlayerCDLL {
   private Node start;
   private Node end;
 
+
   public static class Node{
     private Player player;
     Node next;
@@ -36,6 +37,9 @@ public class PlayerCDLL {
 
   int getSize(){
     return size;
+  }
+  Node getStart(){
+    return start;
   }
 }
 

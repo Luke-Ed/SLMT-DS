@@ -11,7 +11,11 @@
 <?import javafx.scene.control.TextField?>
 
 
+<?import javafx.scene.layout.ColumnConstraints?>
 <GridPane fx:controller="fxml.Controller" xmlns:fx="http://javafx.com/fxml" alignment="CENTER" hgap="10" vgap="10">
+  <columnConstraints>
+    <ColumnConstraints percentWidth="100" hgrow="ALWAYS"/>
+  </columnConstraints>
   <GridPane fx:id="GridPane_Welcome" alignment="CENTER" hgap="10" vgap="10">
     <Label text="Welcome to Yuno, a blatant Uno ripoff!" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <Label text="Press Continue to get started" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
@@ -60,32 +64,36 @@
 
   </GridPane>
   <GridPane fx:id="GridPane_Game" visible="false" alignment="CENTER" hgap="10" vgap="10">
+
     <Label fx:id="Player" />
 
-    <GridPane GridPane.rowIndex="2" GridPane.columnIndex="1" vgap="-290"> <!-- fxml.Deck display GridPane -->
+    <columnConstraints>
+      <ColumnConstraints percentWidth="5" hgrow="SOMETIMES"/>
+      <ColumnConstraints percentWidth="90" hgrow="ALWAYS"/>
+      <ColumnConstraints percentWidth="5" hgrow="SOMETIMES"/>
+    </columnConstraints>
 
+<!--    <GridPane GridPane.rowIndex="2" GridPane.columnIndex="2" vgap="-290">  fxml.Deck display GridPane
       <ImageView GridPane.columnIndex="1" GridPane.rowIndex="1" rotate="-5">
-        <Image url="@/fxml/assets/yuno-card-background.png" requestedHeight="300" preserveRatio="true" smooth="true" />
+        <Image url="@/fxml/assets/yuno-card-background.png" />
       </ImageView>
 
       <ImageView GridPane.columnIndex="1" GridPane.rowIndex="2" rotate="3">
-        <Image url="@/fxml/assets/yuno-card-background.png" requestedHeight="300" preserveRatio="true" smooth="true" />
+        <Image url="@/fxml/assets/yuno-card-background.png" />
       </ImageView>
 
       <ImageView GridPane.columnIndex="1" GridPane.rowIndex="3" >
-        <Image url="@/fxml/assets/yuno-card-background.png" requestedHeight="300" preserveRatio="true" smooth="true" />
+        <Image url="@/fxml/assets/yuno-card-background.png" />
       </ImageView>
+    </GridPane> -->
+    <ImageView GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="Discard_Top_Card_Image"/>
 
-    </GridPane>
+    <ListView fx:id="PlayerHandListView" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity" maxHeight="Infinity" orientation="HORIZONTAL" onMouseClicked="#ActivatePlayCard"/>
 
-    <GridPane GridPane.rowIndex="3" GridPane.columnIndex="1">
-      <ListView fx:id="PlayerHandListView" GridPane.columnIndex="1" GridPane.columnSpan="6" GridPane.rowIndex="1"/>
-
-      <Button text="Play Card" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="1"/>
-
-      <Button text="Draw Card" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2"/>
-
-      <Button text="Call Yuno" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.columnIndex="4"/>
+    <GridPane GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.columnSpan="4">
+      <Button text="Play Card" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="Play_Card_Button" onAction="#PlayCard"/>
+      <Button text="Draw Card" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+      <Button text="Call Yuno" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
 
     </GridPane>
   </GridPane>

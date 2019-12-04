@@ -1,7 +1,6 @@
 package fxml;
 
 import java.util.ArrayList;
-import javafx.scene.image.Image;
 
 public class Player {
   private String name;
@@ -28,7 +27,8 @@ public class Player {
     hand.add(deck.draw());
   }
 
-  boolean play(Card c) {
-    return c.compareTo(discard.top()) == 0;
+  void play(Card c) {
+    discard.add(c);
+    hand.remove(c);
   }
 }

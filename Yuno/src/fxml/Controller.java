@@ -1,5 +1,7 @@
 package fxml;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -25,10 +27,19 @@ public class Controller {
   @FXML protected TextField p2_textfield;
   @FXML protected TextField p3_textfield;
   @FXML protected TextField p4_textfield;
-  Deck deck = new Deck();
-  Deck discard = new Deck();
+  @FXML protected ImageView Discard_Top_Card_Image;
+  @FXML protected Button Play_Card_Button;
+  Card card;
+
+  protected Deck deck = new Deck();
+  protected Deck discard = new Deck();
+
+  PlayerCDLL.Node currentPlayerNode;
+
   protected PlayerCDLL players = new PlayerCDLL();
   private int NumPlayers = 2;
+
+  ObservableList<Card> player1hand = FXCollections.observableArrayList();
   //
   //  Just because I couldn't find it documented well online, I thought I would include
   //  a few options for how to add an image to an image view using an initialize in the controller
@@ -43,16 +54,14 @@ public class Controller {
     background_image.setImage(bkg_img);
     PlayerHandListView.setCellFactory(PlayerHandListView -> new CustomListCell());
     deck.fill();
+    card = deck.draw();
+    Discard_Top_Card_Image.setImage(card.getCardImage());
   }
   @FXML protected void Continue_Button(){
     // This handles the button on the first page, and allows you to continue to the next page.
     // The way we decided to handle this was by having multiple panes, and changing their visibility when we need them.
     GridPane_Welcome.setVisible(false);
     GridPane_Setup.setVisible(true);
-  }
-  @FXML protected void Continue_To_Game_Button() {
-    GridPane_Setup.setVisible(false);
-    GridPane_Game.setVisible(true);
   }
 
   @FXML protected void HandlePlayerToggle(){
@@ -102,5 +111,33 @@ public class Controller {
     players.addNode(new Player(p3_textfield.getText(), deck, discard));
     Player_4_N_Button.setDisable(true);
     Continue_Button.setDisable(false);
+  }
+
+  @FXML protected void Continue_To_Game_Button() {
+    GridPane_Setup.setVisible(false);
+    GridPane_Game.setVisible(true);
+    currentPlayerNode = players.getStart();
+    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
+    PlayerHandListView.setItems(player1hand);
+  }
+  @FXML protected void ActivatePlayCard(){
+    ObservableList<Card> selectedItems = PlayerHandListView.getSelectionModel().getSelectedItems();
+    if (selectedItems.get(0).compareTo(card)==0){
+      Play_Card_Button.setDisable(false);
+    }
+    else {
+      Play_Card_Button.setDisable(true);
+    }
+  }
+  @FXML protected void PlayCard(){
+    ObservableList<Card> selectedItems = PlayerHandListView.getSelectionModel().getSelectedItems();
+    Player currentPlayer = currentPlayerNode.getPlayer();
+    currentPlayer.play(selectedItems.get(0));
+    card=discard.top();
+    Discard_Top_Card_Image.setImage(card.getCardImage());
+    currentPlayerNode = currentPlayerNode.next;
+    player1hand.clear();
+    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
+
   }
 }
