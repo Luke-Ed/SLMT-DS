@@ -28,32 +28,32 @@
     <RadioButton text="3 Players" GridPane.rowIndex="2" GridPane.columnIndex="3" toggleGroup="$PlayerButtons" onAction="#HandlePlayerToggle"/>
     <RadioButton text="4 Players" GridPane.rowIndex="2" GridPane.columnIndex="5" toggleGroup="$PlayerButtons" onAction="#HandlePlayerToggle"/>
 
-    <Button text="Continue" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="5" onAction="#Continue_To_Game_Button" maxWidth="Infinity"/>
+    <Button text="Continue" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="5" onAction="#Continue_To_Game_Button" maxWidth="Infinity" disable="true" fx:id="Continue_Button"/>
 
     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="5">
 
       <GridPane GridPane.rowIndex="1" GridPane.columnIndex="1" vgap="5" hgap="5">
         <Label text="Player 1 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 1"/>
-        <Button text="Set Player 1 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#createPlayer1"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 1" fx:id="p1_textfield"/>
+        <Button text="Set Player 1 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#createPlayer1" fx:id="Player_1_N_Button"/>
       </GridPane>
 
       <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2" vgap="5" hgap="5">
         <Label text="Player 2 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 2"/>
-        <Button text="Set Player 2 Name" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 2" fx:id="p2_textfield"/>
+        <Button text="Set Player 2 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="Player_2_N_Button" onAction="#createPlayer2"/>
       </GridPane>
 
       <GridPane visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="3" fx:id="Player_3_N_GP" hgap="5" vgap="5">
         <Label text="Player 3 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1" />
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-        <Button text="Set Player 3 Name" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="p3_textfield" text="Player 3"/>
+        <Button text="Set Player 3 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="Player_3_N_Button" onAction="#createPlayer3"/>
       </GridPane>
 
       <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4" visible="false" GridPane.columnSpan="4" fx:id="Player_4_N_GP" hgap="5" vgap="5">
         <Label text="Player 4 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1" />
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" />
-        <Button text="Set Player 4 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="p4_textfield" text="Player 4"/>
+        <Button text="Set Player 4 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="Player_4_N_Button" onAction="#createPlayer4"/>
       </GridPane>
 
     </GridPane>

@@ -17,6 +17,7 @@ public class PlayerCDLL {
       return player;
     }
   }
+
   void addNode(Player player){
     Node NewNode = new Node(player);
     if (size==0){
@@ -32,4 +33,9 @@ public class PlayerCDLL {
     }
     size++;
   }
+
+  int getSize(){
+    return size;
+  }
 }
+

@@ -1,6 +1,7 @@
 package fxml;
 
 import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 public class Player {
   private String name;
