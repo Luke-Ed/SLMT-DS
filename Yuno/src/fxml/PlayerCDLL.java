@@ -30,6 +30,7 @@ public class PlayerCDLL {
     else {
       end.next = NewNode;
       NewNode.previous = end;
+      end = NewNode;
       end.next = start;
     }
     size++;
@@ -38,8 +39,9 @@ public class PlayerCDLL {
   int getSize(){
     return size;
   }
-  Node getStart(){
-    return start;
+
+  Node getEnd(){
+    return end;
   }
 }
 

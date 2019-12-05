@@ -116,7 +116,7 @@ public class Controller {
   @FXML protected void Continue_To_Game_Button() {
     GridPane_Setup.setVisible(false);
     GridPane_Game.setVisible(true);
-    currentPlayerNode = players.getStart();
+    currentPlayerNode = players.getEnd();
     player1hand.addAll(currentPlayerNode.getPlayer().getHand());
     PlayerHandListView.setItems(player1hand);
   }
