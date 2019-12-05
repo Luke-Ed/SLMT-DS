@@ -140,4 +140,11 @@ public class Controller {
     player1hand.addAll(currentPlayerNode.getPlayer().getHand());
 
   }
+
+  @FXML protected void DrawCard(){
+    Player currentPlayer = currentPlayerNode.getPlayer();
+    currentPlayer.draw();
+    player1hand.clear();
+    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
+  }
 }
