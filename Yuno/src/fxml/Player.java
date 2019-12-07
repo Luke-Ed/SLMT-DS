@@ -26,7 +26,11 @@ public class Player {
   void draw() {
     hand.add(deck.draw());
   }
-
+  void draw(int numCards) {
+    for (int i = 0; i<numCards; i++){
+      hand.add(deck.draw());
+    }
+  }
   void play(Card c) {
     discard.add(c);
     hand.remove(c);

@@ -137,7 +137,9 @@ public class Controller {
   @FXML protected void PlayCard(){
     ObservableList<Card> selectedItems = PlayerHandListView.getSelectionModel().getSelectedItems();
     Player currentPlayer = currentPlayerNode.getPlayer();
-    currentPlayer.play(selectedItems.get(0));
+    Card tempCard = selectedItems.get(0);
+    whenCardPlayed(tempCard);
+    currentPlayer.play(tempCard);
     card=discard.top();
     Discard_Top_Card_Image.setImage(card.getCardImage());
     Play_Card_Button.setVisible(false);
@@ -168,5 +170,32 @@ public class Controller {
     PlayerHandListView.setMouseTransparent( false );
     PlayerHandListView.setFocusTraversable( true );
     Next_Player.setDisable(true);
+  }
+  private void whenCardPlayed(Card c){
+    Player nextPlayer = currentPlayerNode.next.getPlayer();
+    String cardType = c.getType();
+    switch (cardType) {
+      case "+2":
+        nextPlayer.draw(2);
+        break;
+      case "+4":
+        nextPlayer.draw(4);
+        break;
+      case "skip":
+        if (forwards){
+          currentPlayerNode = currentPlayerNode.next;
+        }
+        else {
+          currentPlayerNode = currentPlayerNode.previous;
+        }
+        break;
+      case "reverse":
+        forwards = !forwards;
+        break;
+      case "ChangeColor":
+         break; //for popup, haven't handled writing that yet so this is going to generate a warning.
+      default:
+        break;
+    }
   }
 }
