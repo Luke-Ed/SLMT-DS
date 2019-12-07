@@ -3,8 +3,8 @@ package fxml;
 import javafx.scene.image.Image;
 
 public class Card implements Comparable<Card> {
-  private String type;
-  private String color;
+  String type;
+  String color;
   private Image cardImage;
 
   String getType() {
