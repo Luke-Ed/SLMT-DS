@@ -15,56 +15,56 @@
   <columnConstraints>
     <ColumnConstraints percentWidth="100" hgrow="ALWAYS"/>
   </columnConstraints>
-  <GridPane fx:id="GridPane_Welcome" alignment="CENTER" hgap="10" vgap="10">
+  <GridPane fx:id="gridPaneWelcome" alignment="CENTER" hgap="10" vgap="10">
     <Label text="Welcome to Yuno, a blatant Uno ripoff!" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <Label text="Press Continue to get started" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Button text="Continue" onAction="#Continue_Button" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity"/>
-    <ImageView fx:id="background_image" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Button text="Continue" onAction="#continueButton" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity"/>
+    <ImageView fx:id="backgroundImage" GridPane.columnIndex="1" GridPane.rowIndex="4" />
   </GridPane>
-  <GridPane fx:id="GridPane_Setup" visible="false" alignment="CENTER" hgap="10" vgap="10">
+  <GridPane fx:id="gridPaneSetup" visible="false" alignment="CENTER" hgap="10" vgap="10">
 
     <Label text="How many players would you like in your game?" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="5"/>
     <fx:define>
       <ToggleGroup fx:id="PlayerButtons"/>
     </fx:define>
-    <RadioButton text="2 Players" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons" selected="true" onAction="#HandlePlayerToggle"/>
-    <RadioButton text="3 Players" GridPane.rowIndex="2" GridPane.columnIndex="3" toggleGroup="$PlayerButtons" onAction="#HandlePlayerToggle"/>
-    <RadioButton text="4 Players" GridPane.rowIndex="2" GridPane.columnIndex="5" toggleGroup="$PlayerButtons" onAction="#HandlePlayerToggle"/>
+    <RadioButton text="2 Players" GridPane.rowIndex="2" GridPane.columnIndex="1" toggleGroup="$PlayerButtons" selected="true" onAction="#handlePlayerToggle"/>
+    <RadioButton text="3 Players" GridPane.rowIndex="2" GridPane.columnIndex="3" toggleGroup="$PlayerButtons" onAction="#handlePlayerToggle"/>
+    <RadioButton text="4 Players" GridPane.rowIndex="2" GridPane.columnIndex="5" toggleGroup="$PlayerButtons" onAction="#handlePlayerToggle"/>
 
-    <Button text="Continue" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="5" onAction="#Continue_To_Game_Button" maxWidth="Infinity" disable="true" fx:id="Continue_Button"/>
+    <Button text="Continue" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="5" onAction="#continueToGameButton" maxWidth="Infinity" disable="true" fx:id="continueButton"/>
 
     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="5">
 
       <GridPane GridPane.rowIndex="1" GridPane.columnIndex="1" vgap="5" hgap="5">
         <Label text="Player 1 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 1" fx:id="p1_textfield"/>
-        <Button text="Set Player 1 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#createPlayer1" fx:id="Player_1_N_Button"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 1" fx:id="p1Textfield"/>
+        <Button text="Set Player 1 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#createPlayer1" fx:id="player1NButton"/>
       </GridPane>
 
       <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2" vgap="5" hgap="5">
         <Label text="Player 2 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 2" fx:id="p2_textfield"/>
-        <Button text="Set Player 2 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="Player_2_N_Button" onAction="#createPlayer2"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" text="Player 2" fx:id="p2Textfield"/>
+        <Button text="Set Player 2 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="player2NButton" onAction="#createPlayer2"/>
       </GridPane>
 
-      <GridPane visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="3" fx:id="Player_3_N_GP" hgap="5" vgap="5">
+      <GridPane visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="3" fx:id="player3NGP" hgap="5" vgap="5">
         <Label text="Player 3 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1" />
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="p3_textfield" text="Player 3"/>
-        <Button text="Set Player 3 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="Player_3_N_Button" onAction="#createPlayer3"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="p3Textfield" text="Player 3"/>
+        <Button text="Set Player 3 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="player3NButton" onAction="#createPlayer3"/>
       </GridPane>
 
-      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4" visible="false" GridPane.columnSpan="4" fx:id="Player_4_N_GP" hgap="5" vgap="5">
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4" visible="false" GridPane.columnSpan="4" fx:id="player4NGP" hgap="5" vgap="5">
         <Label text="Player 4 Name:" GridPane.rowIndex="1" GridPane.columnIndex="1" />
-        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="p4_textfield" text="Player 4"/>
-        <Button text="Set Player 4 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="Player_4_N_Button" onAction="#createPlayer4"/>
+        <TextField GridPane.rowIndex="1" GridPane.columnIndex="2" fx:id="p4Textfield" text="Player 4"/>
+        <Button text="Set Player 4 Name" GridPane.rowIndex="1" GridPane.columnIndex="3" disable="true" fx:id="player4NButton" onAction="#createPlayer4"/>
       </GridPane>
 
     </GridPane>
 
   </GridPane>
-  <GridPane fx:id="GridPane_Game" visible="false" alignment="CENTER" hgap="10" vgap="10">
+  <GridPane fx:id="gridPaneGame" visible="false" alignment="CENTER" hgap="10" vgap="10">
 
-    <Label fx:id="Player" />
+    <Label fx:id="player" />
 
     <columnConstraints>
       <ColumnConstraints percentWidth="5" hgrow="SOMETIMES"/>
@@ -85,14 +85,14 @@
         <Image url="@/fxml/assets/yuno-card-background.png" />
       </ImageView>
     </GridPane> -->
-    <ImageView GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="Discard_Top_Card_Image"/>
+    <ImageView GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="discardTopCardImage"/>
 
-    <ListView fx:id="PlayerHandListView" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity" maxHeight="Infinity" orientation="HORIZONTAL" onMouseClicked="#ActivatePlayCard"/>
+    <ListView fx:id="playerHandListView" GridPane.columnIndex="1" GridPane.rowIndex="3" maxWidth="Infinity" maxHeight="Infinity" orientation="HORIZONTAL" onMouseClicked="#activatePlayCard"/>
 
     <GridPane GridPane.rowIndex="4" GridPane.columnIndex="1" hgap="10" vgap="10" alignment="CENTER">
-      <Button text="Play Card" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="Play_Card_Button" onAction="#PlayCard"/>
-      <Button text="Draw Card" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#DrawCard" fx:id="Draw_Card_Button" />
-      <Button text="Next Player" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#NextPlayer" disable="true" fx:id="Next_Player"/>
+      <Button text="Play Card" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="playCardButton" onAction="#playCard"/>
+      <Button text="Draw Card" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#drawCard" fx:id="drawCardButton" />
+      <Button text="Next Player" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#nextPlayer" disable="true" fx:id="nextPlayer"/>
 
       <Button text="Call Yuno" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
       <Button text="Call Yuno on Previous" GridPane.rowIndex="2" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
