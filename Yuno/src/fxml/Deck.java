@@ -22,12 +22,12 @@ public class Deck {
     }
     for (int i=0; i<4; i++){
       String[] colors = {"purple", "blue", "pink", "green"};
-      orderedDeck.add(new WildCard("skip", colors[i]));
+      orderedDeck.add(new WildCard("Skip", colors[i]));
       for (int j=0; j<3; j++){
         orderedDeck.add(new WildCard("+2",colors[i]));
       }
-      orderedDeck.add(new WildCard("wild", "wild"));
-      orderedDeck.add(new WildCard("wild +4", "wild"));
+      orderedDeck.add(new WildCard("Wild", "wild"));
+      orderedDeck.add(new WildCard("+4", "wild"));
     }
     Collections.shuffle(orderedDeck);
     deck.addAll(orderedDeck);
