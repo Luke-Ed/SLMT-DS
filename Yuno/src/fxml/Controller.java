@@ -8,29 +8,31 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
+import java.util.ArrayList;
+
 public class Controller {
-  @FXML protected ListView<Card> PlayerHandListView;
-  @FXML protected GridPane GridPane_Welcome;
-  @FXML protected GridPane GridPane_Setup;
-  @FXML protected GridPane GridPane_Game;
-  @FXML protected GridPane Player_3_N_GP;
-  @FXML protected GridPane Player_4_N_GP;
-  @FXML protected Button Player_1_N_Button;
-  @FXML protected Button Player_2_N_Button;
-  @FXML protected Button Player_3_N_Button;
-  @FXML protected Button Player_4_N_Button;
-  @FXML protected Button Continue_Button;
-  @FXML protected ImageView background_image;
+  @FXML protected ListView<Card> playerHandListView;
+  @FXML protected GridPane gridPaneWelcome;
+  @FXML protected GridPane gridPaneSetup;
+  @FXML protected GridPane gridPaneGame;
+  @FXML protected GridPane player3NGP;
+  @FXML protected GridPane player4NGP;
+  @FXML protected Button player1NButton;
+  @FXML protected Button player2NButton;
+  @FXML protected Button player3NButton;
+  @FXML protected Button player4NButton;
+  @FXML protected Button continueButton;
+  @FXML protected ImageView backgroundImage;
   @FXML protected ToggleGroup PlayerButtons;
-  @FXML protected Label Player;
-  @FXML protected TextField p1_textfield;
-  @FXML protected TextField p2_textfield;
-  @FXML protected TextField p3_textfield;
-  @FXML protected TextField p4_textfield;
-  @FXML protected ImageView Discard_Top_Card_Image;
-  @FXML protected Button Play_Card_Button;
-  @FXML protected Button Next_Player;
-  @FXML protected Button Draw_Card_Button;
+  @FXML protected Label player;
+  @FXML protected TextField p1Textfield;
+  @FXML protected TextField p2Textfield;
+  @FXML protected TextField p3Textfield;
+  @FXML protected TextField p4Textfield;
+  @FXML protected ImageView discardTopCardImage;
+  @FXML protected Button playCardButton;
+  @FXML protected Button nextPlayer;
+  @FXML protected Button drawCardButton;
   Card card;
 
   protected Deck deck = new Deck();
@@ -39,9 +41,9 @@ public class Controller {
   PlayerCDLL.Node currentPlayerNode;
 
   protected PlayerCDLL players = new PlayerCDLL();
-  private int NumPlayers = 2;
+  private int numPlayers = 2;
 
-  ObservableList<Card> player1hand = FXCollections.observableArrayList();
+  ObservableList<Card> player1Hand = FXCollections.observableArrayList();
 
   private boolean forwards = true;
 
@@ -56,107 +58,107 @@ public class Controller {
   //
   @FXML protected void initialize(){
     Image bkg_img = new Image("fxml/assets/yuno-card-background.png");
-    background_image.setImage(bkg_img);
-    PlayerHandListView.setCellFactory(PlayerHandListView -> new CustomListCell());
+    backgroundImage.setImage(bkg_img);
+    playerHandListView.setCellFactory(PlayerHandListView -> new CustomListCell());
     deck.fill();
     card = deck.draw();
-    Discard_Top_Card_Image.setImage(card.getCardImage());
+    discardTopCardImage.setImage(card.getCardImage());
   }
-  @FXML protected void Continue_Button(){
+  @FXML protected void continueButton(){
     // This handles the button on the first page, and allows you to continue to the next page.
     // The way we decided to handle this was by having multiple panes, and changing their visibility when we need them.
-    GridPane_Welcome.setVisible(false);
-    GridPane_Setup.setVisible(true);
+    gridPaneWelcome.setVisible(false);
+    gridPaneSetup.setVisible(true);
   }
 
-  @FXML protected void HandlePlayerToggle(){
+  @FXML protected void handlePlayerToggle(){
     String Selected =  ((RadioButton)PlayerButtons.getSelectedToggle()).getText();
     if (Selected.equals("2 Players")){
-      Player_3_N_GP.setVisible(false);
-      Player_4_N_GP.setVisible(false);
-      NumPlayers = 2;
+      player3NGP.setVisible(false);
+      player4NGP.setVisible(false);
+      numPlayers = 2;
     }
     else if (Selected.equals("3 Players")) {
-      Player_3_N_GP.setVisible(true);
-      Player_4_N_GP.setVisible(false);
-      NumPlayers = 3;
+      player3NGP.setVisible(true);
+      player4NGP.setVisible(false);
+      numPlayers = 3;
     }
     else {
-      Player_3_N_GP.setVisible(true);
-      Player_4_N_GP.setVisible(true);
-      NumPlayers = 4;
+      player3NGP.setVisible(true);
+      player4NGP.setVisible(true);
+      numPlayers = 4;
     }
   }
   @FXML protected void createPlayer1(){
-    players.addNode(new Player(p1_textfield.getText(), deck, discard));
-    Player_1_N_Button.setDisable(true);
-    Player_2_N_Button.setDisable(false);
+    players.addNode(new Player(p1Textfield.getText(), deck, discard));
+    player1NButton.setDisable(true);
+    player2NButton.setDisable(false);
   }
   @FXML protected void createPlayer2(){
-    players.addNode(new Player(p2_textfield.getText(), deck, discard));
-    Player_2_N_Button.setDisable(true);
-    if (NumPlayers==players.getSize()){
-      Continue_Button.setDisable(false);
+    players.addNode(new Player(p2Textfield.getText(), deck, discard));
+    player2NButton.setDisable(true);
+    if (numPlayers ==players.getSize()){
+      continueButton.setDisable(false);
     }
     else {
-      Player_3_N_Button.setDisable(false);
+      player3NButton.setDisable(false);
     }
   }
   @FXML protected void createPlayer3(){
-    players.addNode(new Player(p3_textfield.getText(), deck, discard));
-    Player_3_N_Button.setDisable(true);
-    if (NumPlayers==players.getSize()){
-      Continue_Button.setDisable(false);
+    players.addNode(new Player(p3Textfield.getText(), deck, discard));
+    player3NButton.setDisable(true);
+    if (numPlayers ==players.getSize()){
+      continueButton.setDisable(false);
     }
     else {
-      Player_4_N_Button.setDisable(false);
+      player4NButton.setDisable(false);
     }
   }
   @FXML protected void createPlayer4(){
-    players.addNode(new Player(p3_textfield.getText(), deck, discard));
-    Player_4_N_Button.setDisable(true);
-    Continue_Button.setDisable(false);
+    players.addNode(new Player(p3Textfield.getText(), deck, discard));
+    player4NButton.setDisable(true);
+    continueButton.setDisable(false);
   }
 
-  @FXML protected void Continue_To_Game_Button() {
-    GridPane_Setup.setVisible(false);
-    GridPane_Game.setVisible(true);
+  @FXML protected void continueToGameButton() {
+    gridPaneSetup.setVisible(false);
+    gridPaneGame.setVisible(true);
     currentPlayerNode = players.getEnd();
-    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
-    PlayerHandListView.setItems(player1hand);
+    player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
+    playerHandListView.setItems(player1Hand);
   }
-  @FXML protected void ActivatePlayCard(){
-    ObservableList<Card> selectedItems = PlayerHandListView.getSelectionModel().getSelectedItems();
+  @FXML protected void activatePlayCard(){
+    ObservableList<Card> selectedItems = playerHandListView.getSelectionModel().getSelectedItems();
     if (selectedItems.get(0).compareTo(card)==0){
-      Play_Card_Button.setDisable(false);
+      playCardButton.setDisable(false);
     }
     else {
-      Play_Card_Button.setDisable(true);
+      playCardButton.setDisable(true);
     }
   }
-  @FXML protected void PlayCard(){
-    ObservableList<Card> selectedItems = PlayerHandListView.getSelectionModel().getSelectedItems();
+  @FXML protected void playCard(){
+    ObservableList<Card> selectedItems = playerHandListView.getSelectionModel().getSelectedItems();
     Player currentPlayer = currentPlayerNode.getPlayer();
     Card tempCard = selectedItems.get(0);
     whenCardPlayed(tempCard);
     currentPlayer.play(tempCard);
     card=discard.top();
-    Discard_Top_Card_Image.setImage(card.getCardImage());
-    Play_Card_Button.setVisible(false);
-    PlayerHandListView.setMouseTransparent( true );
-    PlayerHandListView.setFocusTraversable( false );
-    Next_Player.setDisable(false);
-    Draw_Card_Button.setDisable(true);
+    discardTopCardImage.setImage(card.getCardImage());
+    playCardButton.setDisable(true);
+    playerHandListView.setMouseTransparent( true );
+    playerHandListView.setFocusTraversable( false );
+    nextPlayer.setDisable(false);
+    drawCardButton.setDisable(true);
   }
 
-  @FXML protected void DrawCard(){
+  @FXML protected void drawCard(){
     Player currentPlayer = currentPlayerNode.getPlayer();
     currentPlayer.draw();
-    player1hand.clear();
-    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
+    player1Hand.clear();
+    player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
   }
 
-  @FXML protected void NextPlayer(){
+  @FXML protected void nextPlayer(){
     if (forwards){
       currentPlayerNode = currentPlayerNode.next;
     }
@@ -164,12 +166,12 @@ public class Controller {
       currentPlayerNode = currentPlayerNode.previous;
     }
 
-    player1hand.clear();
-    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
-    Play_Card_Button.setVisible(true);
-    PlayerHandListView.setMouseTransparent( false );
-    PlayerHandListView.setFocusTraversable( true );
-    Next_Player.setDisable(true);
+    player1Hand.clear();
+    player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
+    playCardButton.setVisible(true);
+    playerHandListView.setMouseTransparent( false );
+    playerHandListView.setFocusTraversable( true );
+    nextPlayer.setDisable(true);
   }
   private void whenCardPlayed(Card c){
     Player nextPlayer = currentPlayerNode.next.getPlayer();
@@ -181,7 +183,7 @@ public class Controller {
       case "+4":
         nextPlayer.draw(4);
         break;
-      case "skip":
+      case "Skip":
         if (forwards){
           currentPlayerNode = currentPlayerNode.next;
         }
@@ -189,13 +191,20 @@ public class Controller {
           currentPlayerNode = currentPlayerNode.previous;
         }
         break;
-      case "reverse":
+      case "Reverse":
         forwards = !forwards;
         break;
       case "ChangeColor":
          break; //for popup, haven't handled writing that yet so this is going to generate a warning.
       default:
         break;
+    }
+  }
+  @FXML protected void callYuno(){
+    Player Player = currentPlayerNode.getPlayer();
+    ArrayList<Card> playerHand = Player.getHand();
+    if (playerHand.size()!=1){
+      Player.draw(2);
     }
   }
 }
