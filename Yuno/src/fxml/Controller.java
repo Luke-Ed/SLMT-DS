@@ -29,6 +29,8 @@ public class Controller {
   @FXML protected TextField p4_textfield;
   @FXML protected ImageView Discard_Top_Card_Image;
   @FXML protected Button Play_Card_Button;
+  @FXML protected Button Next_Player;
+  @FXML protected Button Draw_Card_Button;
   Card card;
 
   protected Deck deck = new Deck();
@@ -40,6 +42,9 @@ public class Controller {
   private int NumPlayers = 2;
 
   ObservableList<Card> player1hand = FXCollections.observableArrayList();
+
+  private boolean forwards = true;
+
   //
   //  Just because I couldn't find it documented well online, I thought I would include
   //  a few options for how to add an image to an image view using an initialize in the controller
@@ -135,10 +140,11 @@ public class Controller {
     currentPlayer.play(selectedItems.get(0));
     card=discard.top();
     Discard_Top_Card_Image.setImage(card.getCardImage());
-    currentPlayerNode = currentPlayerNode.next;
-    player1hand.clear();
-    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
-
+    Play_Card_Button.setVisible(false);
+    PlayerHandListView.setMouseTransparent( true );
+    PlayerHandListView.setFocusTraversable( false );
+    Next_Player.setDisable(false);
+    Draw_Card_Button.setDisable(true);
   }
 
   @FXML protected void DrawCard(){
@@ -146,5 +152,21 @@ public class Controller {
     currentPlayer.draw();
     player1hand.clear();
     player1hand.addAll(currentPlayerNode.getPlayer().getHand());
+  }
+
+  @FXML protected void NextPlayer(){
+    if (forwards){
+      currentPlayerNode = currentPlayerNode.next;
+    }
+    else {
+      currentPlayerNode = currentPlayerNode.previous;
+    }
+
+    player1hand.clear();
+    player1hand.addAll(currentPlayerNode.getPlayer().getHand());
+    Play_Card_Button.setVisible(true);
+    PlayerHandListView.setMouseTransparent( false );
+    PlayerHandListView.setFocusTraversable( true );
+    Next_Player.setDisable(true);
   }
 }

@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -13,6 +14,7 @@ public class Main extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception{
     Parent root = FXMLLoader.load(getClass().getResource("YunoX.fxml"));
+      primaryStage.getIcons().add(new Image("fxml/assets/yuno-icon.png"));
       primaryStage.setTitle("Yuno");
       Scene primary = new Scene(root, 1000, 600);
       primary.getStylesheets().add("fxml/dark_mode.css");
