@@ -24,7 +24,7 @@ public class Controller {
   @FXML protected Button continueButton;
   @FXML protected ImageView backgroundImage;
   @FXML protected ToggleGroup PlayerButtons;
-  @FXML protected Label player;
+  @FXML protected Label playerLabel;
   @FXML protected TextField p1Textfield;
   @FXML protected TextField p2Textfield;
   @FXML protected TextField p3Textfield;
@@ -126,6 +126,7 @@ public class Controller {
     currentPlayerNode = players.getEnd();
     player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
     playerHandListView.setItems(player1Hand);
+    playerLabel.setText("Player: " + currentPlayerNode.getPlayerName());
   }
   @FXML protected void activatePlayCard(){
     ObservableList<Card> selectedItems = playerHandListView.getSelectionModel().getSelectedItems();
@@ -172,6 +173,7 @@ public class Controller {
     playerHandListView.setMouseTransparent( false );
     playerHandListView.setFocusTraversable( true );
     nextPlayer.setDisable(true);
+    playerLabel.setText("Player: " + currentPlayerNode.getPlayerName());
   }
   private void whenCardPlayed(Card c){
     Player nextPlayer = currentPlayerNode.next.getPlayer();
@@ -183,7 +185,7 @@ public class Controller {
       case "+4":
         nextPlayer.draw(4);
         break;
-      case "Skip":
+      case "skip":
         if (forwards){
           currentPlayerNode = currentPlayerNode.next;
         }
@@ -191,10 +193,10 @@ public class Controller {
           currentPlayerNode = currentPlayerNode.previous;
         }
         break;
-      case "Reverse":
+      case "reverse":
         forwards = !forwards;
         break;
-      case "ChangeColor":
+      case "wild":
          break; //for popup, haven't handled writing that yet so this is going to generate a warning.
       default:
         break;

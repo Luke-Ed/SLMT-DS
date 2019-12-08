@@ -17,6 +17,9 @@ public class PlayerCDLL {
     Player getPlayer(){
       return player;
     }
+    String getPlayerName(){
+      return player.getName();
+    }
   }
 
   void addNode(Player player){

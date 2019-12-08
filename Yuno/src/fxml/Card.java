@@ -26,6 +26,12 @@ public class Card implements Comparable<Card> {
     cardImage = new Image(url);
   }
 
+  Card(String type){
+    this.type = type;
+    String url = "fxml/assets/"+type+".png";
+    cardImage = new Image(url);
+  }
+
   @Override
   public int compareTo(Card o1) {
     if (this.getType().equals(o1.getType()) || this.getColor().equals(o1.getColor())){
