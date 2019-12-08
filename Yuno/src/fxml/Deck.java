@@ -22,13 +22,13 @@ public class Deck {
     }
     for (int i=0; i<4; i++){
       String[] colors = {"purple", "blue", "pink", "green"};
-      orderedDeck.add(new Card("skip", colors[i]));
-      orderedDeck.add(new Card("reverse", colors[i]));
+      orderedDeck.add(new Card("Skip", colors[i]));
+      orderedDeck.add(new Card("Reverse", colors[i]));
       for (int j=0; j<3; j++){
         orderedDeck.add(new Card("+2",colors[i]));
       }
-      orderedDeck.add(new WildCard("wild", "wild"));
-      orderedDeck.add(new WildCard("wild +4", "wild"));
+      orderedDeck.add(new WildCard("Wild", "wild"));
+      orderedDeck.add(new WildCard("+4", "wild"));
     }
     Collections.shuffle(orderedDeck);
     deck.addAll(orderedDeck);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx" prefHeight="150.0" prefWidth="400.0" alignment="CENTER" vgap="10" hgap="10">
+  <Label text="What color would you like your played card to be?" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+  <GridPane alignment="CENTER" vgap="10" hgap="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+    <columnConstraints>
+      <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+      <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+      <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+      <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
+    </columnConstraints>
+    <Button text="Blue" GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="Infinity"/>
+    <Button text="Green" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity"/>
+    <Button text="Pink" GridPane.rowIndex="1" GridPane.columnIndex="2" maxWidth="Infinity"/>
+    <Button text="Purple" GridPane.rowIndex="1" GridPane.columnIndex="3" maxWidth="Infinity"/>
+  </GridPane>
+</GridPane>
