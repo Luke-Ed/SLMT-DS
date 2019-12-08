@@ -21,8 +21,14 @@ public class CustomListCell extends ListCell<Card> {
       setGraphic(null);
     }
     else{
-      String temp = c.getColor().substring(0,1).toUpperCase()+c.getColor().substring(1);
-      Text color = new Text(temp);
+      Text color;
+      if(c.getColor()!=null){
+        String temp = c.getColor().substring(0,1).toUpperCase()+c.getColor().substring(1);
+        color = new Text(temp);
+      }
+      else {
+        color = new Text("");
+      }
       Text number = new Text(c.getType());
       color.setFill(Color.rgb(255, 255, 255));
       number.setFill(Color.rgb(255, 255, 255));
