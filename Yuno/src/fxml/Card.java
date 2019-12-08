@@ -19,6 +19,11 @@ public class Card implements Comparable<Card> {
     return cardImage;
   }
 
+  void setCardImage(String inColor){
+    String url = "fxml/assets/"+type+"_"+inColor+".png";
+    cardImage = null;
+    cardImage = new Image(url);
+  }
   Card(String type, String color){
     this.color = color;
     this.type = type;

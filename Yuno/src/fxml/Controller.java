@@ -3,12 +3,18 @@ package fxml;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Controller {
   @FXML protected ListView<Card> playerHandListView;
@@ -33,8 +39,11 @@ public class Controller {
   @FXML protected Button playCardButton;
   @FXML protected Button nextPlayer;
   @FXML protected Button drawCardButton;
+  @FXML protected GridPane gridPaneWin;
+  @FXML protected Label winLabel;
   Card card;
 
+  ArrayList<String> notAllowed = new ArrayList<>(Arrays.asList("reverse", "+2", "+4", "skip"));
   protected Deck deck = new Deck();
   protected Deck discard = new Deck();
 
@@ -62,6 +71,9 @@ public class Controller {
     playerHandListView.setCellFactory(PlayerHandListView -> new CustomListCell());
     deck.fill();
     card = deck.draw();
+    while ((card instanceof WildCard) || (notAllowed.contains(card.getType()))){
+      card = deck.draw();
+    }
     discardTopCardImage.setImage(card.getCardImage());
   }
   @FXML protected void continueButton(){
@@ -123,7 +135,7 @@ public class Controller {
   @FXML protected void continueToGameButton() {
     gridPaneSetup.setVisible(false);
     gridPaneGame.setVisible(true);
-    currentPlayerNode = players.getEnd();
+    currentPlayerNode = players.getStart();
     player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
     playerHandListView.setItems(player1Hand);
     playerLabel.setText("Player: " + currentPlayerNode.getPlayerName());
@@ -160,20 +172,28 @@ public class Controller {
   }
 
   @FXML protected void nextPlayer(){
-    if (forwards){
-      currentPlayerNode = currentPlayerNode.next;
+    if (currentPlayerNode.getPlayer().getHand().size()==0){
+      gridPaneGame.setVisible(false);
+      gridPaneWin.setVisible(true);
+      String temp = currentPlayerNode.getPlayerName();
+      winLabel.setText(temp+" won the game!\nCongratulations "+temp+"!");
     }
     else {
-      currentPlayerNode = currentPlayerNode.previous;
-    }
+      if (forwards){
+        currentPlayerNode = currentPlayerNode.next;
+      }
+      else {
+        currentPlayerNode = currentPlayerNode.previous;
+      }
 
-    player1Hand.clear();
-    player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
-    playCardButton.setVisible(true);
-    playerHandListView.setMouseTransparent( false );
-    playerHandListView.setFocusTraversable( true );
-    nextPlayer.setDisable(true);
-    playerLabel.setText("Player: " + currentPlayerNode.getPlayerName());
+      player1Hand.clear();
+      player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
+      playCardButton.setVisible(true);
+      playerHandListView.setMouseTransparent( false );
+      playerHandListView.setFocusTraversable( true );
+      nextPlayer.setDisable(true);
+      playerLabel.setText("Player: " + currentPlayerNode.getPlayerName());
+    }
   }
   private void whenCardPlayed(Card c){
     Player nextPlayer = currentPlayerNode.next.getPlayer();
@@ -184,6 +204,11 @@ public class Controller {
         break;
       case "+4":
         nextPlayer.draw(4);
+        try {
+          generateDialogBox(((WildCard)c));
+        }
+        catch (IOException ignored){
+        }
         break;
       case "skip":
         if (forwards){
@@ -197,6 +222,11 @@ public class Controller {
         forwards = !forwards;
         break;
       case "wild":
+        try {
+          generateDialogBox(((WildCard)c));
+        }
+        catch (IOException ignored){
+        }
          break; //for popup, haven't handled writing that yet so this is going to generate a warning.
       default:
         break;
@@ -208,5 +238,32 @@ public class Controller {
     if (playerHand.size()!=1){
       Player.draw(2);
     }
+  }
+  @FXML protected void callYunoOnPrevious(){
+    Player Player;
+    if (forwards){
+      Player = currentPlayerNode.previous.getPlayer();
+    }
+    else{
+      Player = currentPlayerNode.next.getPlayer();
+    }
+    ArrayList<Card> playerHand = Player.getHand();
+    if (playerHand.size()!=1){
+      currentPlayerNode.getPlayer().draw(2);
+    }
+    else {
+      Player.draw(2);
+    }
+  }
+  private void generateDialogBox(WildCard c) throws IOException {
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CardDialogBox.fxml"));
+    Parent parent = fxmlLoader.load();
+    DialogController dialogController = fxmlLoader.getController();
+    dialogController.setWildCard(c);
+    Scene scene = new Scene(parent);
+    scene.getStylesheets().add("fxml/dark_mode.css");
+    Stage stage = new Stage();
+    stage.setScene(scene);
+    stage.showAndWait();
   }
 }

@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane xmlns="http://javafx.com/javafx" prefHeight="150.0" prefWidth="400.0" alignment="CENTER" vgap="10" hgap="10">
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="fxml.DialogController" prefHeight="150.0"
+          prefWidth="400.0" alignment="CENTER" vgap="10" hgap="10">
   <Label text="What color would you like your played card to be?" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
   <GridPane alignment="CENTER" vgap="10" hgap="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -13,9 +14,9 @@
       <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
       <ColumnConstraints percentWidth="25" hgrow="ALWAYS"/>
     </columnConstraints>
-    <Button text="Blue" GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="Infinity"/>
-    <Button text="Green" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity"/>
-    <Button text="Pink" GridPane.rowIndex="1" GridPane.columnIndex="2" maxWidth="Infinity"/>
-    <Button text="Purple" GridPane.rowIndex="1" GridPane.columnIndex="3" maxWidth="Infinity"/>
+    <Button text="Blue" GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="Infinity" onAction="#blueButton"/>
+    <Button text="Green" GridPane.rowIndex="1" GridPane.columnIndex="1" maxWidth="Infinity" onAction="#greenButton"/>
+    <Button text="Pink" GridPane.rowIndex="1" GridPane.columnIndex="2" maxWidth="Infinity" onAction="#pinkButton"/>
+    <Button text="Purple" GridPane.rowIndex="1" GridPane.columnIndex="3" maxWidth="Infinity" onAction="#purpleButton"/>
   </GridPane>
 </GridPane>

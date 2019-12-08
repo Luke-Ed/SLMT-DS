@@ -29,7 +29,8 @@ public class CustomListCell extends ListCell<Card> {
       else {
         color = new Text("");
       }
-      Text number = new Text(c.getType());
+      String temp = c.getType().substring(0,1).toUpperCase()+c.getType().substring(1);
+      Text number = new Text(temp);
       color.setFill(Color.rgb(255, 255, 255));
       number.setFill(Color.rgb(255, 255, 255));
       color.setFont(Font.font(null, FontWeight.MEDIUM, 16));

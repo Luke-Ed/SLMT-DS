@@ -43,8 +43,8 @@ public class PlayerCDLL {
     return size;
   }
 
-  Node getEnd(){
-    return end;
+  Node getStart(){
+    return start;
   }
 }
 

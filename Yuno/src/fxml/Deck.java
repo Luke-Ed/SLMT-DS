@@ -33,7 +33,15 @@ public class Deck {
     Collections.shuffle(orderedDeck);
     deck.addAll(orderedDeck);
   }
-
+  void refillDeck(Deck deck, Deck discard){
+    Card card = discard.top();
+    ArrayList<Card> temp = new ArrayList<>(discard.giveStack());
+    discard.giveStack().clear();
+    Collections.shuffle(temp);
+    temp.remove(card);
+    discard.add(card);
+    deck.giveStack().addAll(temp);
+  }
   Card draw() {
     return deck.pop();
   }
@@ -48,5 +56,9 @@ public class Deck {
 
   Card top() {
     return deck.peek();
+  }
+
+  Stack<Card> giveStack(){
+    return deck;
   }
 }

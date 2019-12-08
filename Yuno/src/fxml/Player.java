@@ -32,6 +32,9 @@ public class Player {
     }
   }
   void play(Card c) {
+    if (deck.size()<5){
+      deck.refillDeck(deck, discard);
+    }
     discard.add(c);
     hand.remove(c);
   }

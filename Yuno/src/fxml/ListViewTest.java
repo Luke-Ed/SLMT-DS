@@ -21,6 +21,11 @@ public class ListViewTest extends Application {
     deck_1.fill();
     Deck discard = new Deck();
     Player player1 = new Player("player1", deck_1, discard);
+    for (int i=0; i<11; i++){
+      player1.draw();
+      player1.play(player1.getHand().get(0));
+    }
+    deck_1.refillDeck(deck_1, discard);
     ObservableList<Card> player1hand = FXCollections.observableArrayList();
     player1hand.addAll(player1.getHand());
 
