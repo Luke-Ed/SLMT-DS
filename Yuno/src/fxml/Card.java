@@ -20,6 +20,7 @@ public class Card implements Comparable<Card> {
   }
 
   void setCardImage(String inColor){
+    this.color = inColor;
     String url = "fxml/assets/"+type+"_"+inColor+".png";
     cardImage = null;
     cardImage = new Image(url);
@@ -39,11 +40,21 @@ public class Card implements Comparable<Card> {
 
   @Override
   public int compareTo(Card o1) {
-    if (this.getType().equals(o1.getType()) || this.getColor().equals(o1.getColor())){
-      return 0;
+    if(o1 instanceof WildCard){
+      if (this.getColor().equals(o1.getColor())){
+        return 0;
+      }
+      else {
+        return 1;
+      }
     }
     else {
-      return  1;
+      if ((this.getType().equals(o1.getType())) || (this.getColor().equals(o1.getColor()))){
+        return 0;
+      }
+      else {
+        return  1;
+      }
     }
   }
 

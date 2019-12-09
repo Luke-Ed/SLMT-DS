@@ -11,4 +11,7 @@ public class WildCard extends Card {
   public int compareTo(Card o1){
     return 0;
   }
+  public String getColor(){
+    return color;
+  }
 }

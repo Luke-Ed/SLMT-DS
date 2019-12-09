@@ -189,6 +189,7 @@ public class Controller {
       player1Hand.clear();
       player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
       playCardButton.setVisible(true);
+      drawCardButton.setDisable(false);
       playerHandListView.setMouseTransparent( false );
       playerHandListView.setFocusTraversable( true );
       nextPlayer.setDisable(true);
