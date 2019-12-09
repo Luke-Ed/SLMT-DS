@@ -129,7 +129,7 @@ public class Controller {
     }
   }
   @FXML protected void createPlayer4(){
-    players.addNode(new Player(p3Textfield.getText(), deck, discard));
+    players.addNode(new Player(p4Textfield.getText(), deck, discard));
     player4NButton.setDisable(true);
     continueButton.setDisable(false);
   }
