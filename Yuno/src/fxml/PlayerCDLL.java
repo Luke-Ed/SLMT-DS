@@ -29,12 +29,14 @@ public class PlayerCDLL {
       end = NewNode;
       NewNode.next = end;
       NewNode.previous = start;
+      start.previous = end;
     }
     else {
       end.next = NewNode;
       NewNode.previous = end;
       end = NewNode;
       end.next = start;
+      start.previous = end;
     }
     size++;
   }

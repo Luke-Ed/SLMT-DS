@@ -41,6 +41,8 @@ public class Controller {
   @FXML protected Button drawCardButton;
   @FXML protected GridPane gridPaneWin;
   @FXML protected Label winLabel;
+  @FXML protected Button yunoPreviousButton;
+
   Card card;
 
   ArrayList<String> notAllowed = new ArrayList<>(Arrays.asList("reverse", "+2", "+4", "skip"));
@@ -179,6 +181,17 @@ public class Controller {
       winLabel.setText(temp+" won the game!\nCongratulations "+temp+"!");
     }
     else {
+      Player nextPlayerP;
+      if (forwards){
+        nextPlayerP = currentPlayerNode.previous.getPlayer();
+      }
+      else{
+        nextPlayerP = currentPlayerNode.next.getPlayer();
+      }
+      if (nextPlayerP.hasCalledYuno()){
+        yunoPreviousButton.setDisable(true);
+      }
+
       if (forwards){
         currentPlayerNode = currentPlayerNode.next;
       }
@@ -197,7 +210,13 @@ public class Controller {
     }
   }
   private void whenCardPlayed(Card c){
-    Player nextPlayer = currentPlayerNode.next.getPlayer();
+    Player nextPlayer;
+    if (forwards){
+      nextPlayer = currentPlayerNode.next.getPlayer();
+    }
+    else {
+      nextPlayer = currentPlayerNode.previous.getPlayer();
+    }
     String cardType = c.getType();
     switch (cardType) {
       case "+2":
@@ -238,6 +257,9 @@ public class Controller {
     ArrayList<Card> playerHand = Player.getHand();
     if (playerHand.size()!=1){
       Player.draw(2);
+    }
+    else {
+      Player.setHasCalledYuno(true);
     }
     player1Hand.clear();
     player1Hand.addAll(currentPlayerNode.getPlayer().getHand());

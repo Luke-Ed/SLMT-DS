@@ -95,7 +95,7 @@
       <Button text="Next Player" GridPane.rowIndex="1" GridPane.columnIndex="3" onAction="#nextPlayer" disable="true" fx:id="nextPlayer"/>
 
       <Button text="Call Yuno" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#callYuno"/>
-      <Button text="Call Yuno on Previous" GridPane.rowIndex="2" GridPane.columnIndex="2" GridPane.columnSpan="2" onAction="#callYunoOnPrevious"/>
+      <Button text="Call Yuno on Previous" GridPane.rowIndex="2" GridPane.columnIndex="2" GridPane.columnSpan="2" onAction="#callYunoOnPrevious" fx:id="yunoPreviousButton"/>
     </GridPane>
   </GridPane>
 
