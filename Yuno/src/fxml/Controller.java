@@ -239,6 +239,8 @@ public class Controller {
     if (playerHand.size()!=1){
       Player.draw(2);
     }
+    player1Hand.clear();
+    player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
   }
   @FXML protected void callYunoOnPrevious(){
     Player Player;
@@ -255,6 +257,8 @@ public class Controller {
     else {
       Player.draw(2);
     }
+    player1Hand.clear();
+    player1Hand.addAll(currentPlayerNode.getPlayer().getHand());
   }
   private void generateDialogBox(WildCard c) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CardDialogBox.fxml"));
